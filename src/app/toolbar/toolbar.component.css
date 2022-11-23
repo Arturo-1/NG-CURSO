@@ -1,0 +1,11 @@
+.img-logo {
+    width: 100%;
+    max-width: 70px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.nav-link{
+    padding-left: 60px !important;
+    justify-content: center !important
+}
