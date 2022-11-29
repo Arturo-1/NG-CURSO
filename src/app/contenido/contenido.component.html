@@ -1,5 +1,67 @@
 
-        <div class="row mt-4">   
+<section class="sec-tables">
+    <div class="row mt-5">
+        <div class="col-10 offset-1" >
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                <label for="">Seleccione tipo de busqueda</label>
+                    <select class="custom-select" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+                        <option hidden >Seleccione Opcion deseada</option>
+                        <option [value]="1">Carrera</option>
+                        <option [value]="2">Institucion</option>
+                        <option [value]="3">Nombre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" *ngIf="filtroBusqueda">
+                <div class="col-md-6 ">
+                    <label class=" mt-2" for="">Ingrese {{valorFIltro | uppercase}}: </label>
+                    <div class="d-flex">
+                        <div>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" [formControl]="textoDeInput" [ngModel]="valorInput" >
+                        </div>
+                        <div class="ml-3">
+                            <button  *ngIf='textoDeInput' class="btn btn-success" (click)="ValorBusqueda()">Buscar</button>
+                            <button class="btn btn-warning ml-3" (click)="nuevaBusqueda()">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row p-2">
+                <div class=" table-responsive">
+                    <table class="table table-striped table-bordered row-border hover pl-3" style="width:100%">
+                        <thead class="ttdblue">
+                            <tr [ngClass]="colorFiltro">
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Edad</th>
+                                <th>Carrrera</th>
+                                <th>Institucion</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let data of dataArreglo">
+                                <td>{{data.id}}</td>
+                                <td>{{data.nombre}}</td>
+                                <td>{{data.edad}}</td>
+                                <td>{{data.carrera}}</td>
+                                <td>{{data.institucion}}</td>
+                            </tr>
+                        </tbody>
+                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+</section>
+       
+
+
+                <!-- <div class="row mt-4">   
             <div class="col-md-3 offset-1">
                 <div class="row">
                     <div class="container">
@@ -74,5 +136,4 @@
                     </ul>
                 </div>
             </div>
-        </div>
-       
+        </div> -->
