@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MenuLateralComponent } from './menu-lateral.component';
+import { MenuLateralComponent } from "./menu-lateral.component";
 
-describe('MenuLateralComponent', () => {
+describe("MenuLateralComponent", () => {
   let component: MenuLateralComponent;
   let fixture: ComponentFixture<MenuLateralComponent>;
 
@@ -19,7 +19,7 @@ describe('MenuLateralComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
