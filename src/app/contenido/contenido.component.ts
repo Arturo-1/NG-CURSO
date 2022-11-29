@@ -137,31 +137,41 @@ valorInput: any;
  
   ValorBusqueda() {
   
-  let sol = this.textoDeInput.value;
-  console.log("data obtenida final:", sol);
+    let sol = this.textoDeInput.value;
+    console.log("data obtenida final:", sol);
 
-  if(this.verSeleccion == 3){
-    this.dataArreglo=this.alumnos.filter(alumno => alumno.nombre === sol )
-    console.log("valor de select:",this.verSeleccion);
-    this.colorFiltro = 'color1';
-    console.log("data obtenida final111111:", this.dataArreglo);
-    
-  }
-  if(this.verSeleccion == 2){
-    this.dataArreglo = this.alumnos.filter(alumno => alumno.institucion === sol.trim())
-    this.colorFiltro = 'color2';
-    console.log("data nueva institucion:",this.dataArreglo)
-  }
-  if(this.verSeleccion == 1){
-    this.dataArreglo = this.alumnos.filter(alumno => alumno.carrera === sol.trim())
-    this.colorFiltro = 'color3';
-    console.log("data nueva institucion:",this.dataArreglo)
-  }
-  if(this.dataArreglo.length == 0){
-    alert("Busqueda no encontrada, seleccione nuevamente");
-    this.nuevaBusqueda();
-  }
+    if(this.verSeleccion == 3){
+      let busqueda = sol;
+      let expresion = new RegExp(`${busqueda}.*`, "i");
+      this.dataArreglo=this.alumnos.filter(alumno => expresion.test(alumno.nombre));
+      //this.dataArreglo=this.alumnos.filter(alumno => alumno.nombre === sol )
+      this.colorFiltro = 'color1';
+      console.log("data filtro like:", this.dataArreglo);
+      
+    }
+    if(this.verSeleccion == 2){
 
-}
+      let busqueda = sol;
+      let expresion = new RegExp(`${busqueda}.*`, "i");
+      this.dataArreglo=this.alumnos.filter(alumno => expresion.test(alumno.institucion));
+      // this.dataArreglo = this.alumnos.filter(alumno => alumno.institucion === sol.trim())
+      this.colorFiltro = 'color2';
+      console.log("data nueva institucion:",this.dataArreglo)
+    }
+    if(this.verSeleccion == 1){
+
+      let busqueda = sol;
+      let expresion = new RegExp(`${busqueda}.*`, "i");
+      this.dataArreglo=this.alumnos.filter(alumno => expresion.test(alumno.carrera));
+      // this.dataArreglo = this.alumnos.filter(alumno => alumno.carrera === sol.trim())
+      this.colorFiltro = 'color3';
+      console.log("data nueva institucion:",this.dataArreglo)
+    }
+    if(this.dataArreglo.length == 0){
+      alert("Busqueda no encontrada, seleccione nuevamente");
+      this.nuevaBusqueda();
+    }
+
+  }
   
 }
