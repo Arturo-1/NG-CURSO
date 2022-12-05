@@ -9,21 +9,23 @@
   <title>Document</title>
 </head>
 <body>
+
   <app-toolbar></app-toolbar>
   <div class="row">
-    <div class=" col-md-2">
+    <div class=" col-md-2 c-p">
       <app-menu-lateral></app-menu-lateral>
     </div>
-    <div class="col-md-10 fondo-color">
-      <app-contenido ></app-contenido>
-      <!-- (valorEnviado)="funCambio($event)" -->
-      <!-- <div class="row">
-          <div class="col-md-10 offset-1" *ngIf="PruebaDiv">
-            <h3>hola vengo de contenido</h3>
-        </div>
+    <div class="col-md-10 fondo-color c-p" *ngIf="divlogin">
+      <div class="row text-center">
+        <ngx-toast-notifier></ngx-toast-notifier> 
       </div>
-      <br><br> -->
+      <app-login (valorEnviado)="funCambio($event)"></app-login>
     </div>
+
+    <div class="col-md-10 fondo-color c-p" *ngIf="PruebaDiv">
+      <app-contenido ></app-contenido> 
+    </div>
+     
   </div>
   <app-footer></app-footer>
 </body>

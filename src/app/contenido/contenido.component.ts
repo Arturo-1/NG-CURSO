@@ -1,7 +1,7 @@
 
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { group } from 'console';
+
 
 @Component({
   selector: 'app-contenido',
@@ -15,9 +15,9 @@ export class ContenidoComponent implements OnInit {
  
   public colorFiltro:string ='';
   
-  datoPaso:number = 2;
-  // @Output() valorEnviado = new EventEmitter();
-
+  
+  secContent:boolean = false;
+  
   alumnos = [
     {
         id: 1,
@@ -117,7 +117,8 @@ valorInput: any;
 
   ngOnInit(): void {
 
-    this.formularioPrincipal = this.fb.group;
+    this.formularioPrincipal = this.fb.group
+
     this.dataArreglo = this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
@@ -187,5 +188,7 @@ valorInput: any;
       alert("Busqueda no encontrada, seleccione nuevamente");
       this.nuevaBusqueda();
     }
+
   }
+  
 }
