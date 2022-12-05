@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-contenido',
@@ -8,10 +9,15 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./contenido.component.css']
 })
 export class ContenidoComponent implements OnInit {
+  
+  formularioPrincipal:any
   textoDeInput = new FormControl('');
-
+ 
   public colorFiltro:string ='';
-
+  
+  
+  secContent:boolean = false;
+  
   alumnos = [
     {
         id: 1,
@@ -101,15 +107,26 @@ valorInput: any;
 // textoDeInput: string = '';
 
   
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    
+  ) {
+    this.formularioPrincipal = FormGroup;
+
+  }
 
   ngOnInit(): void {
-   this.dataArreglo = this.alumnos
-   this.verSeleccion = 0;
-   this.colorFiltro = 'color0';
+
+    this.formularioPrincipal = this.fb.group
+
+    this.dataArreglo = this.alumnos
+    this.verSeleccion = 0;
+    this.colorFiltro = 'color0';
   }
 
   capturar() {
+    // this.valorEnviado.emit(this.datoPaso);
+    console.log("entre")
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.verSeleccion = this.opcionSeleccionado;
     if(this.verSeleccion != 0){
@@ -132,6 +149,7 @@ valorInput: any;
     this.opcionSeleccionado = 0;
     this.valorInput = '';
     this.filtroBusqueda = false;
+    
   }
 
  
@@ -159,7 +177,6 @@ valorInput: any;
       console.log("data nueva institucion:",this.dataArreglo)
     }
     if(this.verSeleccion == 1){
-
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
       this.dataArreglo=this.alumnos.filter(alumno => expresion.test(alumno.carrera));

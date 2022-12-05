@@ -9,6 +9,13 @@ import { FooterComponent } from "./footer/footer.component";
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from './login/login.component';
+
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxToastNotifierModule } from 'ngx-toast-notifier';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +23,18 @@ import { ReactiveFormsModule } from "@angular/forms";
     ToolbarComponent,
     ContenidoComponent,
     FooterComponent,
-    MenuLateralComponent
+    MenuLateralComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

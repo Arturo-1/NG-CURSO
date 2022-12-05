@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component,  } from "@angular/core";
+import { NgxToastService } from 'ngx-toast-notifier';
 
 @Component({
   selector: "app-root",
@@ -7,4 +8,27 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "ComponentHernandezReyes";
+  pruebaNumber:number=0;
+  PruebaDiv:boolean=false;
+  divlogin:boolean = true;
+  
+  constructor(
+    private ngxToastService: NgxToastService
+  ) { }
+
+  ngOnInit(): void {
+    
+  }
+  funCambio(e:any){
+    this.pruebaNumber = e;
+    console.log("dato que viene de componente contenido:", this.pruebaNumber)
+    if(this.pruebaNumber==1){
+      this.PruebaDiv = true;
+      this.divlogin = false;
+    }
+  }
 }
+
+
+
+
