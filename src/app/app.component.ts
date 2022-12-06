@@ -21,14 +21,11 @@ export class AppComponent {
   }
   funCambio(e:any){
     this.pruebaNumber = e;
-    console.log("dato que viene de componente contenido:", this.pruebaNumber)
+    console.log("dato que viene de componente login:", this.pruebaNumber)
     if(this.pruebaNumber==1){
       this.PruebaDiv = true;
       this.divlogin = false;
     }
   }
 }
-
-
-
 
