@@ -15,9 +15,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgMaterialModule } from "./ng-material.module";
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     ToolbarComponent,
@@ -26,6 +29,7 @@ import { NgxToastNotifierModule } from 'ngx-toast-notifier';
     MenuLateralComponent,
     LoginComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,6 +38,7 @@ import { NgxToastNotifierModule } from 'ngx-toast-notifier';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
+    NgMaterialModule
     
   ],
   providers: [],

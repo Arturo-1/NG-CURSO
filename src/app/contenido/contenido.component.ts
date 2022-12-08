@@ -1,6 +1,8 @@
 
 import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @Component({
@@ -98,6 +100,7 @@ carreras = [
       carrera: 'Ingenieria en sistemas'  
   }
 ]
+
 filtroBusqueda:boolean = false;
 opcionSeleccionado:number = 0;
 verSeleccion:number = 0;
@@ -106,19 +109,18 @@ val:any
 valorInput: any;
 // textoDeInput: string = '';
 
-  
   constructor(
     private fb: FormBuilder,
+    private MatButtonModule:MatButtonModule
     
   ) {
     this.formularioPrincipal = FormGroup;
-
+    
   }
 
   ngOnInit(): void {
 
     this.formularioPrincipal = this.fb.group
-
     this.dataArreglo = this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
@@ -188,7 +190,5 @@ valorInput: any;
       alert("Busqueda no encontrada, seleccione nuevamente");
       this.nuevaBusqueda();
     }
-
   }
-  
 }

@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     }
   ]
  
-
   constructor(
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
@@ -46,7 +45,6 @@ export class LoginComponent implements OnInit {
     });
   }
   
-
   ngOnInit(): void {
     this.error = 'error';
     // this.LoginForm.valueChanges.subscribe((value) => {
