@@ -48,7 +48,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   exports:[
-    A11yModule,
+    
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,

@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+// import { NgMaterialModule } from "./ng-material.module";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { NgMaterialModule } from "./ng-material.module";
     CommonModule,
     BrowserAnimationsModule, // required animations module
     NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
-    NgMaterialModule
+    MatSlideToggleModule,
+    NgMaterialModule,
     
   ],
   providers: [],
