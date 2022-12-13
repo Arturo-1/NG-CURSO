@@ -41,6 +41,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [],
@@ -90,6 +93,7 @@ import { CommonModule } from '@angular/common';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    NgbModule,
   ]
 })
 export class NgMaterialModule { }

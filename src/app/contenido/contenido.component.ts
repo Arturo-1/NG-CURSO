@@ -1,7 +1,8 @@
 
-import { Component, OnInit,Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input, Output,EventEmitter, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+
 
 
 
@@ -12,8 +13,12 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class ContenidoComponent implements OnInit {
   
+  @ViewChild('closeModal') closeModal!: ElementRef;
+  @ViewChild('fCLick') fCLick!: ElementRef<HTMLElement>;
+
   formularioPrincipal:any
   textoDeInput = new FormControl('');
+  
  
   public colorFiltro:string ='';
   
@@ -108,10 +113,13 @@ valorFIltro:string = '';
 val:any
 valorInput: any;
 // textoDeInput: string = '';
+valorPrueba:boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private MatButtonModule:MatButtonModule
+    private MatButtonModule:MatButtonModule,
+    private ref: ChangeDetectorRef,
+    private el: ElementRef,
     
   ) {
     this.formularioPrincipal = FormGroup;
@@ -119,11 +127,15 @@ valorInput: any;
   }
 
   ngOnInit(): void {
-
     this.formularioPrincipal = this.fb.group
     this.dataArreglo = this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
+  }
+
+  triggerFalseClick() {
+    let el: HTMLElement = this.fCLick.nativeElement;
+    el.click();
   }
 
   capturar() {
@@ -146,20 +158,25 @@ valorInput: any;
     console.log("valor de Busqueda:",this.valorFIltro)
    
   }
+
   nuevaBusqueda(){
     this.ngOnInit();
     this.opcionSeleccionado = 0;
     this.valorInput = '';
     this.filtroBusqueda = false;
-    
   }
 
- 
-  ValorBusqueda() {
+  deletePaciente(){
+    console.info("probando funcionalidad");
+    // this.closeModal.nativeElement.click();
+    // this.triggerFalseClick();
+    // this.ref.detectChanges();
+  }
   
+  ValorBusqueda() {
     let sol = this.textoDeInput.value;
     console.log("data obtenida final:", sol);
-
+    this.valorPrueba = true;
     if(this.verSeleccion == 3){
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");

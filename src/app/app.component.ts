@@ -11,6 +11,7 @@ export class AppComponent {
   pruebaNumber:number=0;
   PruebaDiv:boolean=false;
   divlogin:boolean = true;
+  valorPrueba1:boolean = false;
   
   constructor(
     private ngxToastService: NgxToastService
@@ -25,6 +26,7 @@ export class AppComponent {
     if(this.pruebaNumber==1){
       this.PruebaDiv = true;
       this.divlogin = false;
+      this.valorPrueba1=true;
     }
   }
 }

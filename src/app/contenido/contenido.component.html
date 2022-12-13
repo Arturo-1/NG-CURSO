@@ -10,7 +10,6 @@
                     <label for="">Seleccione tipo de busqueda</label>
                 </div>
                 <div class="col-md-6">
-                    
                     <!-- <h4>Seleccione tipo de busqueda</h4>
                     <mat-form-field appearance="fill">
                     <mat-label>Favorite food</mat-label>
@@ -31,7 +30,6 @@
                     <div class="row">
                         <button mat-flat-button color="primary"><mat-icon>person_add</mat-icon>&nbsp; Agregar Nuevo Usuario</button>
                     </div>
-                   
                 </div>
             </div>
             <div class="row" *ngIf="filtroBusqueda">
@@ -49,6 +47,7 @@
                         </div>
                     </div>
                 </div>
+               
             </div>
             <br><br>
             <div class="row p-2">
@@ -72,7 +71,9 @@
                                 <td>{{data.carrera}}</td>
                                 <td>{{data.institucion}}</td>
                                 <td class="text-center">
-                                    <button mat-icon-button aria-placeholder="eliminar Alumno" color="warn" aria-label="Example icon button with a vertical three dot icon">
+                                    
+                                    <button class="btn btn-warning"  data-toggle="modal" data-target="#view"(click)="deletePaciente()"></button>
+                                    <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" data-toggle="modal" data-target="#view"(click)="deletePaciente()">
                                         <mat-icon>delete</mat-icon>
                                     </button>
                                     <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
@@ -84,12 +85,34 @@
                                 </td>
                             </tr>
                         </tbody>
-                       
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+    <br><br>
+</section>
+<div class="modal fade" id="view" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Desea eliminar elemento?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary ">Confirmar</button>
+          <button type="button" class="btn btn-secondary" #closeModal data-dismiss="modal" >Cancelar</button>
+        </div>
+      </div>
+    </div>
+</div>
 
-            <!-- <div fxLayout="row wrap" class=" row d-flex">
+             <!-- <div fxLayout="row wrap" class=" row d-flex">
                 <div fxFlex="" class="col-md-6" *ngFor="let data of dataArreglo">
                   <mat-card class="mat-elevation-z4">
                     <mat-card-header>
@@ -108,10 +131,7 @@
                   </mat-card><br><br>
                 </div>
             </div> -->
-        </div>
-    </div>
-    <br><br>
-</section>
+
        
 
                 <!-- <div class="row mt-4">   

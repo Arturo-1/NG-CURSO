@@ -17,6 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalsComponent } from './components/modals/modals.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // import { NgMaterialModule } from "./ng-material.module";
 
 
@@ -28,7 +33,8 @@ import { NgMaterialModule } from "./ng-material.module";
     ContenidoComponent,
     FooterComponent,
     MenuLateralComponent,
-    LoginComponent
+    LoginComponent,
+    ModalsComponent
   ],
   
   imports: [
@@ -41,8 +47,13 @@ import { NgMaterialModule } from "./ng-material.module";
     NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
     MatSlideToggleModule,
     NgMaterialModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgbModule
+
     
   ],
+  entryComponents:[ContenidoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
