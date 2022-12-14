@@ -94,6 +94,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PortalModule,
     ScrollingModule,
     NgbModule,
+    
   ]
 })
 export class NgMaterialModule { }

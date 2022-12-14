@@ -65,3 +65,7 @@ tbody td .left{
 thead th{
   text-align: center;
 }
+
+table{
+  width: 100%;
+}

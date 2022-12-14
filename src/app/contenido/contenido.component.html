@@ -51,45 +51,52 @@
             </div>
             <br><br>
             <div class="row p-2">
-                <div class=" table-responsive">
-                    <table class="table table-striped table-bordered row-border hover pl-3" style="width:100%">
-                        <thead class="ttdblue">
-                            <tr [ngClass]="colorFiltro">
-                                <th width="5%">Id</th>
-                                <th width="25%">Nombre</th>
-                                <th width="5%">Edad</th>
-                                <th width="25%">Carrrera</th>
-                                <th width="25%">Institucion</th>
-                                <th width="15%">Accion</th>
-                            </tr>
-                        </thead>
-                        <tbody >
-                            <tr *ngFor="let data of dataArreglo">
-                                <td>{{data.id}}</td>
-                                <td>{{data.nombre}}</td>
-                                <td>{{data.edad}}</td>
-                                <td>{{data.carrera}}</td>
-                                <td>{{data.institucion}}</td>
-                                <td class="text-center">
-                                    
-                                    <button class="btn btn-warning"  data-toggle="modal" data-target="#view"(click)="deletePaciente()"></button>
-                                    <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" data-toggle="modal" data-target="#view"(click)="deletePaciente()">
-                                        <mat-icon>delete</mat-icon>
-                                    </button>
-                                    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                                        <mat-icon>info</mat-icon>
-                                    </button>
-                                    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-                                        <mat-icon>update</mat-icon>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
+                <table class="table table-striped table-bordered row-border hover pl-3" width="100%" mat-table  [dataSource]="dataSource"  class="mat-elevation-z8">                    
+                        <!-- Columna id -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.id}} </td>
+                        </ng-container>
+                        <!-- Columna Nombre -->
+                        <ng-container matColumnDef="nombre">
+                            <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.nombre}} </td>
+                        </ng-container>
+                        <!-- Columna edad -->
+                        <ng-container matColumnDef="edad">
+                            <th mat-header-cell *matHeaderCellDef> Edad </th>
+                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.edad}} </td>
+                        </ng-container>
+                        <!-- Columna carrera -->
+                        <ng-container matColumnDef="carrera">
+                            <th mat-header-cell *matHeaderCellDef> Carrera </th>
+                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.carrera}} </td>
+                        </ng-container>
+                        <!-- Columna institucion -->
+                        <ng-container matColumnDef="institucion">
+                            <th mat-header-cell *matHeaderCellDef> Institucion </th>
+                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.institucion}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="star" stickyEnd>
+                            <th class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">Acciones</th>
+                            <td class="text-center" mat-cell *matCellDef="let element">
+                                <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" (click)="deletePaciente()">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                                    <mat-icon>info</mat-icon>
+                                </button>
+                                <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+                                    <mat-icon>update</mat-icon>
+                                </button>
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
     <br><br>
 </section>
 <div class="modal fade" id="view" tabindex="-1">
@@ -210,3 +217,39 @@
                 </div>
             </div>
         </div> -->
+
+<!--- Tabla inicial eliminada
+        <table class="table table-striped table-bordered row-border hover pl-3" style="width:100%">
+            <thead class="ttdblue">
+                <tr [ngClass]="colorFiltro">
+                    <th width="5%">Id</th>
+                    <th width="25%">Nombre</th>
+                    <th width="5%">Edad</th>
+                    <th width="25%">Carrrera</th>
+                    <th width="25%">Institucion</th>
+                    <th width="15%">Accion</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let data of dataArreglo">
+                    <td>{{data.id}}</td>
+                    <td>{{data.nombre}}</td>
+                    <td>{{data.edad}}</td>
+                    <td>{{data.carrera}}</td>
+                    <td>{{data.institucion}}</td>
+                    <td class="text-center">
+                       
+                        <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" (click)="deletePaciente()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon>info</mat-icon>
+                        </button>
+                        <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+                            <mat-icon>update</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+     </table>
+-->

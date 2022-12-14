@@ -21,8 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 // import { NgMaterialModule } from "./ng-material.module";
+
 
 
 @NgModule({
@@ -50,7 +50,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatButtonModule,
     NgbModule
-
     
   ],
   entryComponents:[ContenidoComponent],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
+// import { AppCommon } from '../../../../../../../../../Proyectos/Genomi-k/FrontEnd/admin-genomik-ng/src/modules/app-common/models/app-common.model';
 
 @Component({
   selector: 'app-modals',
@@ -13,6 +14,9 @@ export class ModalsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+  confirmDelete():void{
+    alert("Producto Eliminado exitos")
   }
 
 }
