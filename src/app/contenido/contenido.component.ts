@@ -217,7 +217,7 @@ valorPrueba:boolean = false;
       this.nuevaBusqueda();
     }
   }
-
+  
   deletePaciente(): void{
     this.dialog.open(ModalsComponent)
   }
