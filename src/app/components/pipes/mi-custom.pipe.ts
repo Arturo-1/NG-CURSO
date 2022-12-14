@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MiCustomPipe implements PipeTransform {
 
-  transform(value: string, ...args: string[]): string {
+  transform(value: string, ...args: string []): string {
     return value.toUpperCase();
   }
 
