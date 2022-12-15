@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from  '@angular/material/dialog' ;
 
 
@@ -9,25 +9,28 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from  '@angular/material/dialo
   styleUrls: ['./add-alumno.component.css']
 })
 export class AddAlumnoComponent implements OnInit {
-  nombreControl = new FormControl('');
-  edadControl = new FormControl('');
-  carreraControl = new FormControl('');
-  institucionControl = new FormControl('');
+  studentForm:FormGroup;
+  // nombreControl = new FormControl('',[Validators.required]);
+  // edadControl = new FormControl('',[Validators.required]);
+  // carreraControl = new FormControl('',[Validators.required]);
+  // institucionControl = new FormControl('',[Validators.required]);
 
-  studentForm = new FormGroup({
-    nombre: this.nombreControl,
-    edad: this.nombreControl,
-    carrera: this.nombreControl,
-    institucion: this.nombreControl,
-  })
+  
+  constructor(public dialog: MatDialog,  private fb: FormBuilder,) {
 
-  constructor(public dialog: MatDialog) { }
+    this.studentForm = this.fb.group({
+      nombre: ['', [Validators.required]],
+      edad: ['', [Validators.required]],
+      carrera: ['', [Validators.required]],
+      institucion:['', [Validators.required]],
+    })
+   }
 
   ngOnInit(): void {
 
   }
   addConfirm(){
-    console.log()
+    console.log("valores de formulario:", this.studentForm)
   }
 
 

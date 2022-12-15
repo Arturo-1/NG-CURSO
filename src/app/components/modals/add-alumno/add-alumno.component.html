@@ -8,11 +8,11 @@
           <div class="row ">
             <mat-form-field class="m-2" appearance="fill">
               <mat-label>Nombre</mat-label>
-              <input [formControl]="nombreControl" matInput>
+              <input formControlName="nombre" matInput required>
             </mat-form-field>
             <mat-form-field class="m-2" appearance="fill">
               <mat-label>Edad</mat-label>
-              <input [formControl]="edadControl" matInput>
+              <input formControlName="edad" matInput required>
             </mat-form-field>
           </div>
           <div class="row">
@@ -25,13 +25,13 @@
                   <mat-option value="2">Licenciatura En derecho</mat-option>
                 </mat-select> -->
                 <mat-label>Carrera</mat-label>
-                <input [formControl]="carreraControl" matInput>
+                <input formControlName="carrera" matInput required>
                 
               </mat-form-field>
           
               <mat-form-field  class="m-2"  appearance="fill">
                 <mat-label>Institucion</mat-label>
-                <input [formControl]="institucionControl" matInput>
+                <input formControlName="institucion" matInput required>
               </mat-form-field>
           
           </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="modal-footer">
       <div mat-dialog-actions>
-        <button class="btn btn-success" mat-button mat-dialog-close (click)="addConfirm()">Confirmar</button>
+        <button class="btn btn-success" mat-button mat-dialog-close (click)="addConfirm()" disabled="{{ studentForm.invalid }}">Confirmar</button>
         
         <ng-template [ngTemplateOutlet]="cancelModal" ></ng-template>
       </div>

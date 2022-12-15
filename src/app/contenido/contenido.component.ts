@@ -225,7 +225,7 @@ valorPrueba:boolean = false;
   addAlumno(){
     this.dialog.open(AddAlumnoComponent);
   }  
-  
+
   deleteAlumno(alumnos:any){
    this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== alumnos.id);
   }
