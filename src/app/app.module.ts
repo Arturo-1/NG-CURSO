@@ -17,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { AddAlumnoComponent } from './components/modals/add-alumno/add-alumno.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { MiCustomPipe } from './components/pipes/mi-custom.pipe';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 
 
 // import { NgMaterialModule } from "./ng-material.module";
@@ -39,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MenuLateralComponent,
     LoginComponent,
     ModalsComponent,
+    AddAlumnoComponent,
     MiCustomPipe,
     PipesComponent
   ],
@@ -56,6 +59,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDialogModule,
     MatButtonModule,
     NgbModule,
+   MatFormFieldModule,
     
   ],
   entryComponents:[ContenidoComponent],

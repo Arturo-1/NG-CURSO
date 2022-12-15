@@ -1,0 +1,52 @@
+<div class="modal-add-alumno">
+    <div class="modal-header">
+      <h2 mat-dialog-title>Agregar Alumno</h2>
+    </div>
+    <div class="modal-body">
+      <div mat-dialog-content>
+        <form [formGroup]="studentForm" >
+          <div class="row ">
+            <mat-form-field class="m-2" appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input [formControl]="nombreControl" matInput>
+            </mat-form-field>
+            <mat-form-field class="m-2" appearance="fill">
+              <mat-label>Edad</mat-label>
+              <input [formControl]="edadControl" matInput>
+            </mat-form-field>
+          </div>
+          <div class="row">
+              <mat-form-field  class="m-2"  appearance="fill">
+                <!-- <mat-label>Seleccione Carrera</mat-label> -->
+                <!-- <mat-select [formControl]="edadControl">
+                  <mat-option value="1">Ingenieria en sistemas</mat-option>
+                  <mat-option value="2">Ingenieria en mecatronica</mat-option>
+                  <mat-option value="2">Ingenieria Industrial</mat-option>
+                  <mat-option value="2">Licenciatura En derecho</mat-option>
+                </mat-select> -->
+                <mat-label>Carrera</mat-label>
+                <input [formControl]="carreraControl" matInput>
+                
+              </mat-form-field>
+          
+              <mat-form-field  class="m-2"  appearance="fill">
+                <mat-label>Institucion</mat-label>
+                <input [formControl]="institucionControl" matInput>
+              </mat-form-field>
+          
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div mat-dialog-actions>
+        <button class="btn btn-success" mat-button mat-dialog-close (click)="addConfirm()">Confirmar</button>
+        
+        <ng-template [ngTemplateOutlet]="cancelModal" ></ng-template>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #cancelModal>
+    <button class="btn btn-danger" mat-button mat-dialog-close>Close</button>
+  </ng-template>

@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center ">
                     <div class="row">
-                        <button mat-flat-button color="primary"><mat-icon>person_add</mat-icon>&nbsp; Agregar Nuevo Usuario</button>
+                        <button mat-flat-button color="primary" (click)="addAlumno()"><mat-icon>person_add</mat-icon>&nbsp; Agregar Nuevo Alumno</button>
                     </div>
                 </div>
             </div>
@@ -76,15 +76,16 @@
                         <ng-container matColumnDef="star" stickyEnd>
                             <th class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">Acciones</th>
                             <td class="text-center" mat-cell *matCellDef="let element">
-                                <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" (click)="deletePaciente()">
+                                <button class="m-1" mat-icon-button matTooltip="Eliminar Alumno" color="warn" (click)="deleteAlumno(element)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
-                                <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                                <button class="m-1" mat-icon-button color="primary" matTooltip="Actualizar informacion">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion">
                                     <mat-icon>info</mat-icon>
                                 </button>
-                                <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-                                    <mat-icon>update</mat-icon>
-                                </button>
+                                
                             </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

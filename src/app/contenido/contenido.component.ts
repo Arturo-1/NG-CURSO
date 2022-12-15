@@ -4,6 +4,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalsComponent } from '../components/modals/modals.component';
+import { AddAlumnoComponent } from '../components/modals/add-alumno/add-alumno.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { filter } from 'rxjs/operators';
+
 
 
 
@@ -17,7 +21,7 @@ export interface PeriodicElement {
 
 }
 
-const alumnos: PeriodicElement[]=[
+let alumnos: PeriodicElement[]=[
   {id: 1,nombre: "Arturo Hernandez Reyes",edad: 30, carrera: "Ingenieria en sistemas", institucion: "universidad mexicana de especialidades"
   },
   {
@@ -132,10 +136,10 @@ valorPrueba:boolean = false;
     private ref: ChangeDetectorRef,
     private el: ElementRef,
     public dialog: MatDialog,
+
        
   ) {
     this.formularioPrincipal = FormGroup;
-    
     
   }
 
@@ -217,11 +221,15 @@ valorPrueba:boolean = false;
       this.nuevaBusqueda();
     }
   }
+
+  addAlumno(){
+    this.dialog.open(AddAlumnoComponent);
+  }  
   
-  deletePaciente(): void{
-    this.dialog.open(ModalsComponent)
+  deleteAlumno(alumnos:any){
+   this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== alumnos.id);
   }
-  
+ 
   
   
 }

@@ -9,14 +9,11 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class ModalsComponent implements OnInit {
 
-  constructor(
-   
-  ) { }
+constructor() { }
 
   ngOnInit(): void {
   }
   confirmDelete():void{
     alert("Producto Eliminado exitos")
   }
-
 }
