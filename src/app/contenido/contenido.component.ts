@@ -6,7 +6,9 @@ import { ModalsComponent } from '../components/modals/modals.component';
 import { AddAlumnoComponent } from '../components/modals/add-alumno/add-alumno.component';
 import { MatDialogRef, MatDialog  } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
-import {alumno} from'../models/alumno.models'
+// import { Student } from 'src/app/models/student.model';
+import { alumno } from 'src/app/models/alumno.models';
+
 
 
 
@@ -127,8 +129,8 @@ valorPrueba:boolean = false;
     private MatButtonModule:MatButtonModule,
     private ref: ChangeDetectorRef,
     private el: ElementRef,
-    public dialog: MatDialog,
-    // private readonly dialogRef: MatDialogRef<AddAlumnoComponent>
+    private readonly dialog: MatDialog,
+    // private readonly dialogRef: MatDialog<AddAlumnoComponent>
 
   ) {
     this.formularioPrincipal = FormGroup;
@@ -225,11 +227,24 @@ valorPrueba:boolean = false;
         // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
         this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)]
       }
-      console.log("date principal:", this.dataSource)
+      
     })
   }  
 
-  deleteAlumno(alumnos:any){
+  updateAlumno(alumno: alumno) {
+    const dialog = this.dialog.open(AddAlumnoComponent, {
+      data: alumno,
+    })
+
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.dataSource = this.alumnos.map((stu) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
+      }
+    })
+
+  }
+
+  deleteAlumno(alumnos:alumno){
    this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== alumnos.id);
   }
  
