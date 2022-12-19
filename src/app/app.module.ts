@@ -15,17 +15,34 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgMaterialModule } from "./ng-material.module";
+import { AddAlumnoComponent } from './components/modals/add-alumno/add-alumno.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { MiCustomPipe } from './components/pipes/mi-custom.pipe';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalsComponent } from './components/modals/modals.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 
+// import { NgMaterialModule } from "./ng-material.module";
 
 @NgModule({
+
   declarations: [
     AppComponent,
     ToolbarComponent,
     ContenidoComponent,
     FooterComponent,
     MenuLateralComponent,
-    LoginComponent
+    LoginComponent,
+    ModalsComponent,
+    AddAlumnoComponent,
+    MiCustomPipe,
+    PipesComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,8 +51,15 @@ import { NgxToastNotifierModule } from 'ngx-toast-notifier';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
+    MatSlideToggleModule,
+    NgMaterialModule,
+    MatDialogModule,
+    MatButtonModule,
+    NgbModule,
+    MatFormFieldModule,
     
   ],
+  entryComponents:[ContenidoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
