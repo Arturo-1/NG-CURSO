@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from  '@angular/material/dialog' ;
+import { alumno } from 'src/app/models/alumno.models';
 
 
 
@@ -17,13 +18,23 @@ export class AddAlumnoComponent implements OnInit {
   // carreraControl = new FormControl('',[Validators.required]);
   // institucionControl = new FormControl('',[Validators.required]);
 
-  constructor(private readonly dialogRef: MatDialogRef<AddAlumnoComponent>,  private fb: FormBuilder,) {
+  constructor(
+    private readonly dialogRef: MatDialogRef<AddAlumnoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: alumno | null,  
+    private fb: FormBuilder,
+  ) {
+
     this.studentForm = this.fb.group({
       nombre: ['', [Validators.required]],
       edad: ['', [Validators.required]],
       carrera: ['', [Validators.required]],
       institucion:['', [Validators.required]],
     })
+
+    console.log("info de data:", data)
+    if(data){
+      this.studentForm.patchValue(data)
+    }
   }
 
   ngOnInit(): void {
