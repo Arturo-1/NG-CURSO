@@ -223,7 +223,7 @@ valorPrueba:boolean = false;
       if(value){
         const IdFin = this.dataSource[this.dataSource.length -1]?.id;
         // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
-        this.dataSource = [...this.alumnos, new alumno(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)]
+        this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)]
       }
       console.log("date principal:", this.dataSource)
     })
@@ -233,6 +233,5 @@ valorPrueba:boolean = false;
    this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== alumnos.id);
   }
  
-  
   
 }
