@@ -26,10 +26,7 @@ import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 
-
 // import { NgMaterialModule } from "./ng-material.module";
-
-
 
 @NgModule({
 
@@ -59,7 +56,7 @@ import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/fo
     MatDialogModule,
     MatButtonModule,
     NgbModule,
-   MatFormFieldModule,
+    MatFormFieldModule,
     
   ],
   entryComponents:[ContenidoComponent],

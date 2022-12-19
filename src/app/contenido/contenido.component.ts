@@ -2,27 +2,47 @@
 import { Component, OnInit,Input, Output,EventEmitter, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { MatDialog } from '@angular/material/dialog';
 import { ModalsComponent } from '../components/modals/modals.component';
 import { AddAlumnoComponent } from '../components/modals/add-alumno/add-alumno.component';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog  } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
+import {alumno} from'../models/alumno.models'
 
 
 
+@Component({
+  selector: 'app-contenido',
+  templateUrl: './contenido.component.html',
+  styleUrls: ['./contenido.component.css']
+})
+export class ContenidoComponent implements OnInit {
+  displayedColumns = [
+    'id',
+    'nombre',
+    'edad',
+    'carrera',
+    'institucion',
+    'star',
+  ];
+  
 
-export interface PeriodicElement {
-
-  id: number;
-  nombre: string;
-  edad: number;
-  carrera: string;
-  institucion: string;
-
-}
-
-let alumnos: PeriodicElement[]=[
-  {id: 1,nombre: "Arturo Hernandez Reyes",edad: 30, carrera: "Ingenieria en sistemas", institucion: "universidad mexicana de especialidades"
+  // displayedColumns: string[] = ['id', 'nombre', 'edad', 'carrera', 'institucion'];
+  // dataSource = alumnos;
+  
+  @ViewChild('closeModal') closeModal!: ElementRef;
+  @ViewChild('fCLick') fCLick!: ElementRef<HTMLElement>;
+  formularioPrincipal:any
+  textoDeInput = new FormControl('');
+  public colorFiltro:string ='';
+  secContent:boolean = false;
+dataArreglo:any = []
+alumnos: alumno[]=[
+  { 
+    id: 1,
+    nombre: "Arturo Hernandez Reyes",
+    edad: 30, 
+    carrera: "Ingenieria en sistemas", 
+    institucion: "universidad mexicana de especialidades"
   },
   {
     id: 2,
@@ -88,34 +108,6 @@ let alumnos: PeriodicElement[]=[
     institucion: "tecnologico de monterrey"
   },
 ];
-
-@Component({
-  selector: 'app-contenido',
-  templateUrl: './contenido.component.html',
-  styleUrls: ['./contenido.component.css']
-})
-export class ContenidoComponent implements OnInit {
-  displayedColumns = [
-    'id',
-    'nombre',
-    'edad',
-    'carrera',
-    'institucion',
-    'star',
-  ];
-  
-
-  // displayedColumns: string[] = ['id', 'nombre', 'edad', 'carrera', 'institucion'];
-  // dataSource = alumnos;
-  
-  @ViewChild('closeModal') closeModal!: ElementRef;
-  @ViewChild('fCLick') fCLick!: ElementRef<HTMLElement>;
-  formularioPrincipal:any
-  textoDeInput = new FormControl('');
-  public colorFiltro:string ='';
-  secContent:boolean = false;
-  
-dataArreglo:any = []
 carreras = [
   {
       id: '1',
@@ -136,17 +128,16 @@ valorPrueba:boolean = false;
     private ref: ChangeDetectorRef,
     private el: ElementRef,
     public dialog: MatDialog,
+    // private readonly dialogRef: MatDialogRef<AddAlumnoComponent>
 
-       
   ) {
     this.formularioPrincipal = FormGroup;
-    
   }
 
   ngOnInit(): void {
     this.formularioPrincipal = this.fb.group
     
-    this.dataSource =alumnos
+    this.dataSource =this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
   }
@@ -182,6 +173,7 @@ valorPrueba:boolean = false;
     this.opcionSeleccionado = 0;
     this.valorInput = '';
     this.filtroBusqueda = false;
+    console.log("arreglo inicial:", this.dataSource)
   }
 
   ValorBusqueda() {
@@ -189,21 +181,23 @@ valorPrueba:boolean = false;
     let sol = this.textoDeInput.value;
     console.log("data obtenida final:", sol);
     this.valorPrueba = true;
+    console.log("arreglo inicial:", this.dataSource)
 
     if(this.verSeleccion == 3){
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
-      this.dataSource=alumnos.filter(alumno => expresion.test(alumno.nombre));
+      this.dataSource=this.alumnos.filter(alumno => expresion.test(alumno.nombre));
       //this.dataArreglo=this.alumnos.filter(alumno => alumno.nombre === sol )
       this.colorFiltro = 'color1';
       console.log("data filtro like:", this.dataSource);
+      console.log("arreglo inicial:", this.dataSource)
       
     }
     if(this.verSeleccion == 2){
 
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
-      this.dataSource=alumnos.filter(alumno => expresion.test(alumno.institucion));
+      this.dataSource=this.alumnos.filter(alumno => expresion.test(alumno.institucion));
       // this.dataArreglo = this.alumnos.filter(alumno => alumno.institucion === sol.trim())
       this.colorFiltro = 'color2';
       console.log("data nueva institucion:",this.dataSource)
@@ -211,7 +205,7 @@ valorPrueba:boolean = false;
     if(this.verSeleccion == 1){
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
-      this.dataSource=alumnos.filter(alumno => expresion.test(alumno.carrera));
+      this.dataSource=this.alumnos.filter(alumno => expresion.test(alumno.carrera));
       // this.dataArreglo = this.alumnos.filter(alumno => alumno.carrera === sol.trim())
       this.colorFiltro = 'color3';
       console.log("data nueva institucion:",this.dataSource)
@@ -223,7 +217,16 @@ valorPrueba:boolean = false;
   }
 
   addAlumno(){
-    this.dialog.open(AddAlumnoComponent);
+    const dialogData = this.dialog.open(AddAlumnoComponent);
+ 
+    dialogData.afterClosed().subscribe((value) => {
+      if(value){
+        const IdFin = this.dataSource[this.dataSource.length -1]?.id;
+        // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
+        this.dataSource = [...this.alumnos, new alumno(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)]
+      }
+      console.log("date principal:", this.dataSource)
+    })
   }  
 
   deleteAlumno(alumnos:any){
