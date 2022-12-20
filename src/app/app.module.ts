@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
+import { TheadTableDirective } from "./components/directivas/thead-table.directive";
 
 // import { NgMaterialModule } from "./ng-material.module";
 
@@ -40,7 +41,9 @@ import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/fo
     ModalsComponent,
     AddAlumnoComponent,
     MiCustomPipe,
-    PipesComponent
+    PipesComponent,
+    TheadTableDirective,
+
   ],
   
   imports: [

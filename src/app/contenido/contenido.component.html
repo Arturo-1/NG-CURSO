@@ -21,7 +21,7 @@
                         <option hidden >Seleccione Opcion deseada</option>
                         <option [value]="1">Carrera</option>
                         <option [value]="2">Institucion</option>
-                        <option [value]="3">Nombre</option>
+                        <!-- <option [value]="3">Nombre</option> -->
                     </select>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center ">
@@ -50,31 +50,31 @@
                 <table  mat-table  [dataSource]="dataSource"  class="mat-elevation-z8">                    
                         <!-- Columna id -->
                         <ng-container matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <th appTheadTable mat-header-cell *matHeaderCellDef>{{ 'No.' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.id}} </td>
                         </ng-container>
                         <!-- Columna Nombre -->
                         <ng-container matColumnDef="nombre">
-                            <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
-                            <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.nombre}} </td>
+                            <th appTheadTable mat-header-cell *matHeaderCellDef> {{'Nombre Completo' | uppercase}} </th>
+                            <td mat-cell *matCellDef="let dataArreglo">{{ dataArreglo | PipeAlumno }}</td>
                         </ng-container>
                         <!-- Columna edad -->
                         <ng-container matColumnDef="edad">
-                            <th mat-header-cell *matHeaderCellDef> Edad </th>
+                            <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Edad' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.edad}} </td>
                         </ng-container>
                         <!-- Columna carrera -->
                         <ng-container matColumnDef="carrera">
-                            <th mat-header-cell *matHeaderCellDef> Carrera </th>
+                            <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Carrera' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.carrera}} </td>
                         </ng-container>
                         <!-- Columna institucion -->
                         <ng-container matColumnDef="institucion">
-                            <th mat-header-cell *matHeaderCellDef> Institucion </th>
+                            <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Institucion' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.institucion}} </td>
                         </ng-container>
                         <ng-container matColumnDef="star" stickyEnd>
-                            <th class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">Acciones</th>
+                            <th appTheadTable class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">{{ 'Acciones' | uppercase}}</th>
                             <td class="text-center" mat-cell *matCellDef="let element">
                                 <button class="m-1" mat-icon-button matTooltip="Eliminar Alumno" color="warn" (click)="deleteAlumno(element)">
                                     <mat-icon>delete</mat-icon>
@@ -82,10 +82,9 @@
                                 <button class="m-1" mat-icon-button color="primary" (click)="updateAlumno(element)"  matTooltip="Actualizar informacion">
                                     <mat-icon>edit</mat-icon>
                                 </button>
-                                <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion">
+                                <!-- <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion">
                                     <mat-icon>info</mat-icon>
-                                </button>
-                                
+                                </button> -->
                             </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -96,7 +95,6 @@
         </div>
     <br><br>
 </section>
-
    <!-- <div class="row mt-4">   
             <div class="col-md-3 offset-1">
                 <div class="row">
@@ -194,7 +192,6 @@
                     <td>{{data.carrera}}</td>
                     <td>{{data.institucion}}</td>
                     <td class="text-center">
-                       
                         <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" (click)="deletePaciente()">
                             <mat-icon>delete</mat-icon>
                         </button>

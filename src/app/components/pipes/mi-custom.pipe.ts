@@ -1,12 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { alumno } from 'src/app/models/alumno.models';
 
 @Pipe({
-  name: 'miCustom'
+  name: 'PipeAlumno',
 })
 export class MiCustomPipe implements PipeTransform {
 
-  transform(value: string, ...args: string []): string {
-    return value.toUpperCase();
+  transform(value: alumno, ...args: string []): string {
+    return value.nombre + " " + value.apellidos;
+   
   }
 
 }
