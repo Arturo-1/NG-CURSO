@@ -9,9 +9,6 @@ import { filter } from 'rxjs/operators';
 // import { Student } from 'src/app/models/student.model';
 import { alumno } from 'src/app/models/alumno.models';
 
-
-
-
 @Component({
   selector: 'app-contenido',
   templateUrl: './contenido.component.html',
@@ -41,70 +38,80 @@ dataArreglo:any = []
 alumnos: alumno[]=[
   { 
     id: 1,
-    nombre: "Arturo Hernandez Reyes",
+    nombre: "Arturo",
+    apellidos: "Hernandez Reyes",
     edad: 30, 
     carrera: "Ingenieria en sistemas", 
     institucion: "universidad mexicana de especialidades"
   },
   {
     id: 2,
-    nombre: "carlos adrian Rodriguez Quezada",
+    nombre: "carlos adrian ",
+    apellidos: "Rodriguez Quezada",
     edad: 25,
     carrera: "Ingenieria en mecatronica",
     institucion: "UANL"
   },
   {
     id: 3,
-    nombre: "Agustin Espinoza Vazquez",
+    nombre: "Agustin ",
+    apellidos: "Espinoza Vazquez",
     edad: 24,
     carrera: "Ingenieria en mecatronica",
     institucion: "UANL"
   },
   {
     id: 4,
-    nombre: "itzel Perez Garcia",
+    nombre: "itzel",
+    apellidos: "Perez Garcia",
     edad: 25,
     carrera: "Ingenieria Industrial",
     institucion: "tecnologico de monterrey"
   },
   {
     id: 5,
-    nombre: "Luis Morales mendez",
+    nombre: "Luis",
+    apellidos: "Morales mendez",
     edad: 23,
     carrera: "Ingenieria en sistemas",
     institucion: "universidad mexicana de especialidades"
   },
   {
     id: 6,
-    nombre: "Alejandro Lopez Moedano",
+    nombre: "Alejandro",
+    apellidos: "Lopez Moedano",
     edad: 26,
     carrera: "Ingenieria Industrial",
     institucion: "tecnologico de monterrey"
   },
   {
     id: 7,
-    nombre: 'Karen Medina Vela',
+    nombre: 'Karen',
+    apellidos: "Medina Vela",
     edad: 24,
     carrera: 'Licenciatura En derecho',
     institucion: "tecnologico de monterrey"
   },
   {
     id: 8,
-    nombre: "Rigoberto Garcia Gomez",
+    nombre: "Rigoberto",
+    apellidos: "Garcia Gomez",
     edad: 23,
     carrera: "Ingenieria en sistemas",
     institucion: "universidad mexicana de especialidades"
   },
   {
     id: 9,
-    nombre: "Iker Miguel Arreola hernandez",
+    nombre: "Iker Miguel",
+    apellidos: "Arreola hernandez",
     edad: 22,
     carrera: "Licenciatura En derecho",
     institucion: "tecnologico de monterrey"
   },
   {
     id: 10,
-    nombre: "Brenda Perez Garcia",
+    nombre: "Brenda",
+    apellidos: "Perez Garcia",
     edad: 31,
     carrera: "Ingenieria Industrial",
     institucion: "tecnologico de monterrey"
@@ -143,6 +150,7 @@ valorPrueba:boolean = false;
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
   }
+
 
   triggerFalseClick() {
     let el: HTMLElement = this.fCLick.nativeElement;
@@ -189,7 +197,8 @@ valorPrueba:boolean = false;
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
       this.dataSource=this.alumnos.filter(alumno => expresion.test(alumno.nombre));
-      //this.dataArreglo=this.alumnos.filter(alumno => alumno.nombre === sol )
+      this.dataSource=this.alumnos.filter(alumno => expresion.test(alumno.apellidos));
+      // this.dataArreglo=this.alumnos.filter(alumno => alumno.nombre === sol )
       this.colorFiltro = 'color1';
       console.log("data filtro like:", this.dataSource);
       console.log("arreglo inicial:", this.dataSource)
@@ -225,7 +234,7 @@ valorPrueba:boolean = false;
       if(value){
         const IdFin = this.dataSource[this.dataSource.length -1]?.id;
         // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
-        this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)]
+        this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.apellidos,value.edad, value.carrera, value.institucion)]
       }
       
     })
@@ -235,13 +244,12 @@ valorPrueba:boolean = false;
     const dialog = this.dialog.open(AddAlumnoComponent, {
       data: alumno,
     })
-
     dialog.afterClosed().subscribe((data) => {
       if (data) {
-        this.dataSource = this.alumnos.map((stu) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
+        this.dataSource = this.dataSource.map((stu:any) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
       }
     })
-
+    
   }
 
   deleteAlumno(alumnos:alumno){
