@@ -40,8 +40,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
-import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CommonModule} from '@angular/common';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 
@@ -97,7 +97,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     NgbModule,
     MatFormFieldModule,
  
-    
   ]
 })
 export class NgMaterialModule { }

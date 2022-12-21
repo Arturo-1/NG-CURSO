@@ -43,7 +43,7 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
     MiCustomPipe,
     PipesComponent,
     TheadTableDirective,
-
+    
   ],
   
   imports: [
