@@ -18,6 +18,7 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+
     
   }
   funCambio(e:any){
@@ -30,3 +31,4 @@ export class AppComponent {
     }
   }
 }
+

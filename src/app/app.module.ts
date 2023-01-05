@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { PagesModule } from './pages/pages.module';
 import { AddAlumnoComponent } from './components/modals/add-alumno/add-alumno.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { MiCustomPipe } from './components/pipes/mi-custom.pipe';
@@ -60,6 +61,7 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
     MatButtonModule,
     NgbModule,
     MatFormFieldModule,
+    PagesModule
     
   ],
   entryComponents:[ContenidoComponent],

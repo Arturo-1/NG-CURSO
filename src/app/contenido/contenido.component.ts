@@ -8,6 +8,9 @@ import { MatDialogRef, MatDialog  } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
 // import { Student } from 'src/app/models/student.model';
 import { alumno } from 'src/app/models/alumno.models';
+import { MatSelectModule } from '@angular/material/select';
+import { Alumno } from '../alumno';
+import { DataObservableService } from '../services/data-observable.service';
 
 @Component({
   selector: 'app-contenido',
@@ -137,6 +140,7 @@ valorPrueba:boolean = false;
     private ref: ChangeDetectorRef,
     private el: ElementRef,
     private readonly dialog: MatDialog,
+    private servicio: DataObservableService
     // private readonly dialogRef: MatDialog<AddAlumnoComponent>
 
   ) {
@@ -144,6 +148,14 @@ valorPrueba:boolean = false;
   }
 
   ngOnInit(): void {
+    this.servicio.getAlumnos().subscribe(valores =>{
+      console.log("data valores:", valores)
+    });
+
+    this.servicio.getFecha().subscribe(valor =>{
+      console.log("valor emitido:", valor)
+    })
+
     this.formularioPrincipal = this.fb.group
     
     this.dataSource =this.alumnos
@@ -202,7 +214,6 @@ valorPrueba:boolean = false;
       this.colorFiltro = 'color1';
       console.log("data filtro like:", this.dataSource);
       console.log("arreglo inicial:", this.dataSource)
-      
     }
     if(this.verSeleccion == 2){
 
@@ -213,6 +224,7 @@ valorPrueba:boolean = false;
       this.colorFiltro = 'color2';
       console.log("data nueva institucion:",this.dataSource)
     }
+
     if(this.verSeleccion == 1){
       let busqueda = sol;
       let expresion = new RegExp(`${busqueda}.*`, "i");
@@ -221,10 +233,12 @@ valorPrueba:boolean = false;
       this.colorFiltro = 'color3';
       console.log("data nueva institucion:",this.dataSource)
     }
+
     if(this.dataSource.length == 0){
       alert("Busqueda no encontrada, seleccione nuevamente");
       this.nuevaBusqueda();
     }
+    
   }
 
   addAlumno(){
