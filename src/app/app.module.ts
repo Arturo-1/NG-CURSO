@@ -1,22 +1,16 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ToolbarComponent } from "./toolbar/toolbar.component";
-import { ContenidoComponent } from "./contenido/contenido.component";
-import { FooterComponent } from "./footer/footer.component";
-import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
-
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { RouterModule, Routes } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { AddAlumnoComponent } from './components/modals/add-alumno/add-alumno.component';
 import { PipesComponent } from './components/pipes/pipes.component';
@@ -27,11 +21,18 @@ import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 import { TheadTableDirective } from "./components/directivas/thead-table.directive";
+import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component";
+import { FooterComponent } from "./components/Layout/footer/footer.component";
+import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
+import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-lateral.component";
+
+
 
 // import { NgMaterialModule } from "./ng-material.module";
 
-@NgModule({
 
+
+@NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
@@ -46,7 +47,6 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
     TheadTableDirective,
     
   ],
-  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -61,7 +61,8 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
     MatButtonModule,
     NgbModule,
     MatFormFieldModule,
-    PagesModule
+    PagesModule, 
+    RouterModule
     
   ],
   entryComponents:[ContenidoComponent],
@@ -69,5 +70,4 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 

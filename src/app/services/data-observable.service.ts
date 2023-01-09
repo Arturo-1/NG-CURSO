@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { interval, Observable, of} from 'rxjs';
-import { map } from 'rxjs/operator/map';
-
-import { take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 import { alumno } from '../models/alumno.models';
 
@@ -27,8 +25,8 @@ export class DataObservableService {
     ]);
   }
 
-  public getFecha(): Observable<number>{
-    return interval(1000).pipe(map((_: any) => new Date()));
-  }
+  // public getFecha(): Observable<number>{
+  //   return interval(1000).pipe(map( _ => new Date()));
+  // }
 
 }

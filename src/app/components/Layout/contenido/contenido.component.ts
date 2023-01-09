@@ -2,15 +2,16 @@
 import { Component, OnInit,Input, Output,EventEmitter, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { ModalsComponent } from '../components/modals/modals.component';
-import { AddAlumnoComponent } from '../components/modals/add-alumno/add-alumno.component';
+// import { ModalsComponent } from '../components/modals/modals.component';
+// import { AddAlumnoComponent } from '../components/modals/add-alumno/add-alumno.component';
 import { MatDialogRef, MatDialog  } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
 // import { Student } from 'src/app/models/student.model';
 import { alumno } from 'src/app/models/alumno.models';
 import { MatSelectModule } from '@angular/material/select';
-import { Alumno } from '../alumno';
-import { DataObservableService } from '../services/data-observable.service';
+
+// import { DataObservableService } from '../services/data-observable.service';
+import { AddAlumnoComponent } from '../../modals/add-alumno/add-alumno.component';
 
 @Component({
   selector: 'app-contenido',
@@ -140,7 +141,7 @@ valorPrueba:boolean = false;
     private ref: ChangeDetectorRef,
     private el: ElementRef,
     private readonly dialog: MatDialog,
-    private servicio: DataObservableService
+    // private servicio: DataObservableService
     // private readonly dialogRef: MatDialog<AddAlumnoComponent>
 
   ) {
@@ -148,13 +149,13 @@ valorPrueba:boolean = false;
   }
 
   ngOnInit(): void {
-    this.servicio.getAlumnos().subscribe(valores =>{
-      console.log("data valores:", valores)
-    });
+    // this.servicio.getAlumnos().subscribe(valores =>{
+    //   console.log("data valores:", valores)
+    // });
 
-    this.servicio.getFecha().subscribe(valor =>{
-      console.log("valor emitido:", valor)
-    })
+    // this.servicio.getFecha().subscribe(valor =>{
+    //   console.log("valor emitido:", valor)
+    // })
 
     this.formularioPrincipal = this.fb.group
     

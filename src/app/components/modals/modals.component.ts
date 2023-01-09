@@ -14,6 +14,6 @@ constructor() { }
   ngOnInit(): void {
   }
   confirmDelete():void{
-    alert("Producto Eliminado exitos")
+    alert("Producto Eliminado exitosamente")
   }
 }
