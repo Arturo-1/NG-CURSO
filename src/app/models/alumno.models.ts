@@ -6,6 +6,5 @@ export class alumno {
         public edad: number,
         public carrera: string,
         public institucion: string,
-
     ) {}
 }

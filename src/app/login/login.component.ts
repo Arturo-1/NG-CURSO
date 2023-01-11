@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     });
   }
   
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.error = 'error';
     // this.LoginForm.valueChanges.subscribe((value) => {
     //   console.log(value);
