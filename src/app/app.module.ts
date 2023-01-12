@@ -26,6 +26,7 @@ import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component"
 import { FooterComponent } from "./components/Layout/footer/footer.component";
 import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
 import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-lateral.component";
+import { AlumnoComponent } from "./components/alumno/alumno.component";
 
 
 
@@ -48,6 +49,7 @@ import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-late
     PipesComponent,
     TheadTableDirective,
     CursosComponent,
+    AlumnoComponent
     
   ],
   imports: [
