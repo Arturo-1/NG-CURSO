@@ -19,7 +19,6 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-    
   }
   funCambio(e:any){
     this.pruebaNumber = e;

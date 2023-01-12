@@ -1,6 +1,6 @@
 
-
-<section class="sec-tables">
+<router-outlet></router-outlet>
+<!-- <section class="sec-tables">
     <div class="row mt-5">
         <div class="col-10 offset-1">
             <div class="row mb-3">
@@ -8,21 +8,12 @@
                     <label for="">Seleccione tipo de busqueda</label>
                 </div>
                 <div class="col-md-6">
-                    <!-- <h4>Seleccione tipo de busqueda</h4>
-                    <mat-form-field appearance="fill">
-                    <mat-label>Favorite food</mat-label>
-                    <mat-select [(ngModel)]="selectedValue" name="food">
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                        </mat-option>
-                    </mat-select> -
-                    </mat-form-field>-->
                     <select class="custom-select" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
                         <option hidden >Seleccione Opcion deseada</option>
                         <option [value]="1">Carrera</option>
-                        <option [value]="2">Institucion</option>
+                        <option [value]="2">Institucion</option> -->
                         <!-- <option [value]="3">Nombre</option> -->
-                    </select>
+                    <!-- </select>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center ">
                     <div class="row">
@@ -37,9 +28,9 @@
                         <div>
                             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" [formControl]="textoDeInput" [ngModel]="valorInput" >
                         </div>
-                        <div class="ml-3">
+                        <div class="ml-3"> -->
                             <!-- <button  *ngIf='textoDeInput' class="btn btn-success" >Buscar</button> -->
-                            <button *ngIf='textoDeInput' mat-raised-button color="success" (click)="ValorBusqueda()"><mat-icon>search</mat-icon>&nbsp; Success</button>
+                            <!-- <button *ngIf='textoDeInput' mat-raised-button color="success" (click)="ValorBusqueda()"><mat-icon>search</mat-icon>&nbsp; Success</button>
                             <button mat-raised-button color="warn" class="ml-3" (click)="nuevaBusqueda()"><mat-icon>reply</mat-icon>&nbsp; Regresar</button>
                         </div>
                     </div>
@@ -47,29 +38,29 @@
             </div>
             <br><br>
             <div class="row p-2 ">
-                <table  mat-table  [dataSource]="dataSource"  class="mat-elevation-z8">                    
+                <table  mat-table  [dataSource]="dataSource"  class="mat-elevation-z8">                     -->
                         <!-- Columna id -->
-                        <ng-container matColumnDef="id">
+                        <!-- <ng-container matColumnDef="id">
                             <th appTheadTable mat-header-cell *matHeaderCellDef>{{ 'No.' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.id}} </td>
                         </ng-container>
-                        <!-- Columna Nombre -->
-                        <ng-container matColumnDef="nombre">
+                         Columna Nombre -->
+                        <!-- <ng-container matColumnDef="nombre">
                             <th appTheadTable mat-header-cell *matHeaderCellDef> {{'Nombre Completo' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo">{{ dataArreglo | PipeAlumno }}</td>
-                        </ng-container>
+                        </ng-container> -->
                         <!-- Columna edad -->
-                        <ng-container matColumnDef="edad">
+                        <!-- <ng-container matColumnDef="edad">
                             <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Edad' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.edad}} </td>
-                        </ng-container>
+                        </ng-container> -->
                         <!-- Columna carrera -->
-                        <ng-container matColumnDef="carrera">
+                        <!-- <ng-container matColumnDef="carrera">
                             <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Carrera' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.carrera}} </td>
-                        </ng-container>
+                        </ng-container> -->
                         <!-- Columna institucion -->
-                        <ng-container matColumnDef="institucion">
+                        <!-- <ng-container matColumnDef="institucion">
                             <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Institucion' | uppercase}} </th>
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.institucion}} </td>
                         </ng-container>
@@ -81,11 +72,11 @@
                                 </button>
                                 <button class="m-1" mat-icon-button color="primary" (click)="updateAlumno(element)"  matTooltip="Actualizar informacion">
                                     <mat-icon>edit</mat-icon>
-                                </button>
+                                </button> -->
                                 <!-- <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion">
                                     <mat-icon>info</mat-icon>
-                                </button> -->
-                            </td>
+                                </button> --> 
+                            <!-- </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -95,114 +86,4 @@
         </div>
     <br><br>
 </section>
-   <!-- <div class="row mt-4">   
-            <div class="col-md-3 offset-1">
-                <div class="row">
-                    <div class="container">
-                        <img class="img-responsive" src="https://i.pinimg.com/550x/9b/7e/89/9b7e897aa5b26b4cdda4361abb41e5ea.jpg" alt="">
-                    </div>
-                </div>
-                <br>
-                <div class="row ">
-                    <div class="col-md-12 text-center">
-                        <h4>Datos Generales</h4>
-                        <hr>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10 d-flex">
-                            <div class="col-md-6 text-right">
-                                <p><strong>Edad</strong></p>
-                                <p><strong>Nacionalidad</strong></p>
-                                <p><strong>Direccion</strong></p>
-                                <p><strong>Carrera</strong></p>
-                            </div>
-                            <div class="col-md-6">
-                                <p><strong>30 AÑOS</strong></p>
-                                <p><strong>Mexicana</strong></p>
-                                <p><strong>Nuevo leon</strong></p>
-                                <p><strong>Licenciatura en sistemas</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-            <div class="col-md-7 ml-5">
-                <div class="row ">
-                    <h2>Arturo Hernandez Reyes</h2>
-                </div>
-                <br><br>
-                <div class="row">
-                    <p><strong>Descripcion</strong></p>
-                    <p class="descrip">Soy ingeniero en sistemas computaciones, que busca desempeñarse profesionalmente en el desarrollo web de aplicaciones, ya que actualmente es uno de los ambitos laborales mas estables y con un amplio desarrollo. Tengo un amplio interes por la tecnologia y su aplicacion y estoy desarrollando aptitudes para poder logras mis objetivos.  </p>
-                </div>
-                <hr>
-                <br><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p><strong>Objetivos:</strong></p>
-                        <ul>
-                            <li>Estabilidad Economica</li>
-                            <li>Desarrollo Profesional</li>
-                            <li>aplicar conocimientos que controbuyan a la sociedad</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <p><strong>Motivaciones:</strong></p>
-                        <ul>
-                            <li>ser mas competente</li>
-                            <li>apoyo familiar</li>
-                            <li>desarrollo personal</li>
-                        </ul>                        
-                    </div>
-                    
-                    
-                </div>
-                <br><br>
-                <div class="row">
-                    <p><strong>Aptitudes:</strong></p>
-                    <ul>
-                        <li>Pesponsabilidad</li>
-                        <li>Compromiso</li>
-                        <li>Proactivo</li>
-                        <li>Determinacion</li>
-                    </ul>
-                </div>
-            </div>
-        </div> 
-    -->
-
-<!--- Tabla inicial eliminada
-        <table class="table table-striped table-bordered row-border hover pl-3" style="width:100%">
-            <thead class="ttdblue">
-                <tr [ngClass]="colorFiltro">
-                    <th width="5%">Id</th>
-                    <th width="25%">Nombre</th>
-                    <th width="5%">Edad</th>
-                    <th width="25%">Carrrera</th>
-                    <th width="25%">Institucion</th>
-                    <th width="15%">Accion</th>
-                </tr>
-            </thead>
-            <tbody >
-                <tr *ngFor="let data of dataArreglo">
-                    <td>{{data.id}}</td>
-                    <td>{{data.nombre}}</td>
-                    <td>{{data.edad}}</td>
-                    <td>{{data.carrera}}</td>
-                    <td>{{data.institucion}}</td>
-                    <td class="text-center">
-                        <button mat-icon-button aria-placeholder="Eliminar Alumno" color="warn" (click)="deletePaciente()">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-                            <mat-icon>info</mat-icon>
-                        </button>
-                        <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-                            <mat-icon>update</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-     </table>
--->
+ -->

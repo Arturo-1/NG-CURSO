@@ -6,16 +6,22 @@
         </div>
         <mat-list class="m-3">
             <mat-list-item>
-              <span class=" pr-3"><mat-icon >group</mat-icon></span>
-              <span ><a>Alumnos</a></span>
+              <a routerLink="/alumnos">
+                <span class=" pr-3" ><mat-icon >group</mat-icon></span>
+                <span >Alumnos</span>
+              </a>
             </mat-list-item>
             <mat-list-item>
-                <span class=" pr-3"><mat-icon >home</mat-icon></span>
+              <a routerLink="/cursos">
+                <span class=" pr-3" ><mat-icon >home</mat-icon></span>
                 <span >Cursos</span>
+              </a>
             </mat-list-item>
           <mat-list-item>
-            <span class=" pr-3"><mat-icon>person</mat-icon></span>
-            <span >Usuarios</span>
+            <a routerLink="/usuarios">
+              <span class=" pr-3 " ><mat-icon >person</mat-icon></span>
+              <span >Usuarios</span>
+            </a>
           </mat-list-item>
         </mat-list>
     </nav>

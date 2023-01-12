@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
     private ngxToastService: NgxToastService
-     
   ) 
   {
     this.LoginForm = this.fb.group({
