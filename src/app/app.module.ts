@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { CursosComponent } from './components/cursos/cursos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { AddAlumnoComponent } from './components/modals/add-alumno/add-alumno.component';
@@ -25,6 +26,7 @@ import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component"
 import { FooterComponent } from "./components/Layout/footer/footer.component";
 import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
 import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-lateral.component";
+
 
 
 
@@ -45,6 +47,7 @@ import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-late
     MiCustomPipe,
     PipesComponent,
     TheadTableDirective,
+    CursosComponent,
     
   ],
   imports: [
@@ -62,7 +65,7 @@ import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-late
     NgbModule,
     MatFormFieldModule,
     PagesModule, 
-    RouterModule
+    RouterModule,
     
   ],
   entryComponents:[ContenidoComponent],

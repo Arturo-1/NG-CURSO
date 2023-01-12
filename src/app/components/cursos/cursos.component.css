@@ -1,0 +1,12 @@
+.mat-card{
+    max-width: 300px;
+    margin: auto;
+    /* margin: 30px; */
+    margin-bottom: 30px;
+}
+.mat-card-avatar{
+    background-size: cover;
+}
+.mat-card-actions{
+    display: flex;
+}

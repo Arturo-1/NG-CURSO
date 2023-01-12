@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 // import { DataObservableService } from '../services/data-observable.service';
 import { AddAlumnoComponent } from '../../modals/add-alumno/add-alumno.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-contenido',
@@ -47,7 +48,7 @@ alumnos: alumno[]=[
     edad: 30, 
     carrera: "Ingenieria en sistemas", 
     institucion: "universidad mexicana de especialidades"
-  },
+  }, 
   {
     id: 2,
     nombre: "carlos adrian ",
