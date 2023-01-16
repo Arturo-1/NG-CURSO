@@ -1,7 +1,11 @@
-import { DataSource } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
-import { alumno } from 'src/app/models/alumno.models';
+// import { DataSource } from '@angular/cdk/collections';
+// import { alumno } from 'src/app/models/alumno.models';
 
+import { Component, OnInit } from '@angular/core';
+import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.component';
+import { MatDialog  } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Curso } from 'src/app/models/curso';
 
 
 @Component({
@@ -10,8 +14,24 @@ import { alumno } from 'src/app/models/alumno.models';
   styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent implements OnInit {
+  displayedColumns = [
+    'id',
+    'nombre',
+    'Codigo',
+    'Tutor',
+    'Area',
+    'Fecha Inicial',
+    'Precio',
+    'Acciones'
+  ];
 
-  cursos =[
+  opcionSeleccionado:number = 0;
+  filtroBusqueda:boolean = false;
+  valorFIltro:string = '';
+  textoDeInput = new FormControl('');
+  valorInput: any;
+
+  public cursos:Curso[]=[
     { 
       id: 1,
       nombre: "Desarrollo Angular",
@@ -67,26 +87,52 @@ export class CursosComponent implements OnInit {
       img: "../assets/img/cursos/derecho.jpg",
       precio: 2450
     }, 
-
   ]
+  dataArreglo:any = []
+  public dataSource:any = [];
+  public dataCursos2:any = [];
   img:string="robotica.jpg"
   pruebaNumber:any = []
   val:any;
-  constructor() { }
 
-  ngOnInit(): void {
-   this.funCambio(this.val)
+  constructor(
+    private readonly dialog: MatDialog,
+  ) { 
+    
   }
 
-  funCambio(e:any){
-    this.pruebaNumber = e;
-    console.log("dato que viene de componente alumnos 111111:", this.pruebaNumber)
-   
-    // if(this.pruebaNumber==1){
-    //   this.PruebaDiv = true;
-    //   this.divlogin = false;
-    //   this.valorPrueba1=true;
-    // }
+  ngOnInit(): void {
+    this.dataSource = this.cursos
+  }
+
+  // funCambio(e:any){
+  //   this.pruebaNumber = e;
+  //   console.log("dato que viene de componente alumnos 111111:", this.pruebaNumber)
+  //   // if(this.pruebaNumber==1){
+  //   //   this.PruebaDiv = true;
+  //   //   this.divlogin = false;
+  //   //   this.valorPrueba1=true;
+  //   // }
+  // }
+
+  addCurso(){
+    const dialogData = this.dialog.open(CursosModalComponent);
+    
+    dialogData.afterClosed().subscribe((value) => {
+      if(value){
+        // const IdFin = this.dataSource[this.dataSource.length -1]?.id;
+        // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
+        // this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.apellidos,value.edad, value.carrera, value.institucion)]
+      }
+      
+    })
+  }
+
+  deleteCurso(cursos:Curso){
+    console.info("valor element",cursos.id)
+    console.info("valor element origincal",this.dataSource)
+    
+    this.dataSource = this.dataSource.filter((dataSource:any) => this.dataSource.id !== this.cursos[0].id);
   }
 
 }

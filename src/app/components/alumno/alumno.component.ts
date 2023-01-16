@@ -163,8 +163,6 @@ valorPrueba:boolean = false;
 
     this.formularioPrincipal = this.fb.group
     this.dataSource =this.alumnos
-    this.dataSource2.emit(this.dataSource);
-    console.log("ggggggggggggg:",this.dataSource2)
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
   }
