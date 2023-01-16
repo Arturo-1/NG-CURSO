@@ -1,4 +1,7 @@
+import { DataSource } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
+import { alumno } from 'src/app/models/alumno.models';
+
 
 
 @Component({
@@ -66,9 +69,24 @@ export class CursosComponent implements OnInit {
     }, 
 
   ]
+  img:string="robotica.jpg"
+  pruebaNumber:any = []
+  val:any;
   constructor() { }
 
   ngOnInit(): void {
+   this.funCambio(this.val)
+  }
+
+  funCambio(e:any){
+    this.pruebaNumber = e;
+    console.log("dato que viene de componente alumnos 111111:", this.pruebaNumber)
+   
+    // if(this.pruebaNumber==1){
+    //   this.PruebaDiv = true;
+    //   this.divlogin = false;
+    //   this.valorPrueba1=true;
+    // }
   }
 
 }
