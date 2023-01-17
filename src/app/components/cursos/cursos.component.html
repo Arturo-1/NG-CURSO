@@ -56,30 +56,30 @@
                           <td mat-cell *matCellDef="let dataArreglo">{{ dataArreglo.nombre }}</td>
                       </ng-container>
                       <!-- Columna Codigo -->
-                      <ng-container matColumnDef="Codigo">
+                      <ng-container matColumnDef="codigo">
                           <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Codigo' | uppercase}} </th>
-                          <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.codigo}} </td>
+                          <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.Codigo}} </td>
                       </ng-container>
                       <!-- Columna Tutor -->
-                      <ng-container matColumnDef="Tutor">
+                      <ng-container matColumnDef="tutor">
                           <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Tutor' | uppercase}} </th>
                           <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.tutor}} </td>
                       </ng-container>
                       <!-- Columna Area -->
-                      <ng-container matColumnDef="Area">
+                      <ng-container matColumnDef="area">
                           <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Area' | uppercase}} </th>
                           <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.area}} </td>
                       </ng-container>
                       <!-- Columna Area -->
-                      <ng-container matColumnDef="Fecha Inicial">
+                      <ng-container matColumnDef="fecha Inicial">
                         <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Fecha Inicio' | uppercase}} </th>
                         <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.fecha_Inicial}} </td>
                       </ng-container>
-                      <ng-container matColumnDef="Precio">
+                      <ng-container matColumnDef="precio">
                         <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Precio' | uppercase}} </th>
                         <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.precio}} </td>
                       </ng-container>
-                      <ng-container matColumnDef="Acciones" stickyEnd>
+                      <ng-container matColumnDef="acciones" stickyEnd>
                           <th appTheadTable class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">{{ 'Acciones' | uppercase}}</th>
                           <td class="text-center" mat-cell *matCellDef="let element">
                               <button class="m-1" mat-icon-button matTooltip="Eliminar Curso" (click)="deleteCurso(element)" color="warn" >

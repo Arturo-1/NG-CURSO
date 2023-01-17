@@ -6,6 +6,7 @@ import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.compon
 import { MatDialog  } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Curso } from 'src/app/models/curso';
+// import { Curso } from '../../models/curso/curso.module';
 
 
 @Component({
@@ -17,12 +18,12 @@ export class CursosComponent implements OnInit {
   displayedColumns = [
     'id',
     'nombre',
-    'Codigo',
-    'Tutor',
-    'Area',
-    'Fecha Inicial',
-    'Precio',
-    'Acciones'
+    'codigo',
+    'tutor',
+    'area',
+    'fecha Inicial',
+    'precio',
+    'acciones'
   ];
 
   opcionSeleccionado:number = 0;
@@ -129,10 +130,7 @@ export class CursosComponent implements OnInit {
   }
 
   deleteCurso(cursos:Curso){
-    console.info("valor element",cursos.id)
-    console.info("valor element origincal",this.dataSource)
-    
-    this.dataSource = this.dataSource.filter((dataSource:any) => this.dataSource.id !== this.cursos[0].id);
+    this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== cursos.id);
   }
 
 }
