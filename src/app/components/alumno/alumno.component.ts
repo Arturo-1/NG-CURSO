@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
 import { alumno } from 'src/app/models/alumno.models';
 import { MatSelectModule } from '@angular/material/select';
 import { AddAlumnoComponent } from '../modals/add-alumno/add-alumno.component';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-alumno',
@@ -15,6 +16,8 @@ import { AddAlumnoComponent } from '../modals/add-alumno/add-alumno.component';
   styleUrls: ['./alumno.component.css']
 })
 export class AlumnoComponent implements OnInit {
+
+  
 
   displayedColumns = [
     'id',
@@ -31,6 +34,7 @@ export class AlumnoComponent implements OnInit {
   
   @ViewChild('closeModal') closeModal!: ElementRef;
   @ViewChild('fCLick') fCLick!: ElementRef<HTMLElement>;
+  
   formularioPrincipal:any
   textoDeInput = new FormControl('');
   public colorFiltro:string ='';
@@ -124,6 +128,8 @@ carreras = [
       carrera: 'Ingenieria en sistemas'  
   }
 ]
+datoValidate2:number = 0;
+@Output() dataSource2 = new EventEmitter();
 filtroBusqueda:boolean = false;
 opcionSeleccionado:number = 0;
 verSeleccion:number = 0;
@@ -131,6 +137,7 @@ valorFIltro:string = '';
 valorInput: any;
 valorPrueba:boolean = false;
   public dataSource:any = [];
+  // public dataSource2:any = [];
 
   constructor(
     private fb: FormBuilder,
@@ -155,7 +162,6 @@ valorPrueba:boolean = false;
     // })
 
     this.formularioPrincipal = this.fb.group
-    
     this.dataSource =this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';

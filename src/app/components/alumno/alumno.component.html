@@ -6,15 +6,6 @@
                     <label for="">Seleccione tipo de busqueda</label>
                 </div>
                 <div class="col-md-6">
-                    <!-- <h4>Seleccione tipo de busqueda</h4>
-                    <mat-form-field appearance="fill">
-                    <mat-label>Favorite food</mat-label>
-                    <mat-select [(ngModel)]="selectedValue" name="food">
-                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                        </mat-option>
-                    </mat-select> -
-                    </mat-form-field>-->
                     <select class="custom-select" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
                         <option hidden >Seleccione Opcion deseada</option>
                         <option [value]="1">Carrera</option>

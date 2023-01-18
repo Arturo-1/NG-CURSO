@@ -1,4 +1,12 @@
+// import { DataSource } from '@angular/cdk/collections';
+// import { alumno } from 'src/app/models/alumno.models';
+
 import { Component, OnInit } from '@angular/core';
+import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.component';
+import { MatDialog  } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Curso } from 'src/app/models/curso';
+// import { Curso } from '../../models/curso/curso.module';
 
 
 @Component({
@@ -7,8 +15,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent implements OnInit {
+  displayedColumns = [
+    'id',
+    'nombre',
+    'codigo',
+    'tutor',
+    'area',
+    'fecha Inicial',
+    'precio',
+    'acciones'
+  ];
 
-  cursos =[
+  opcionSeleccionado:number = 0;
+  filtroBusqueda:boolean = false;
+  valorFIltro:string = '';
+  textoDeInput = new FormControl('');
+  valorInput: any;
+
+  public cursos:Curso[]=[
     { 
       id: 1,
       nombre: "Desarrollo Angular",
@@ -64,11 +88,49 @@ export class CursosComponent implements OnInit {
       img: "../assets/img/cursos/derecho.jpg",
       precio: 2450
     }, 
-
   ]
-  constructor() { }
+  dataArreglo:any = []
+  public dataSource:any = [];
+  public dataCursos2:any = [];
+  img:string="robotica.jpg"
+  pruebaNumber:any = []
+  val:any;
+
+  constructor(
+    private readonly dialog: MatDialog,
+  ) { 
+    
+  }
 
   ngOnInit(): void {
+    this.dataSource = this.cursos
+  }
+
+  // funCambio(e:any){
+  //   this.pruebaNumber = e;
+  //   console.log("dato que viene de componente alumnos 111111:", this.pruebaNumber)
+  //   // if(this.pruebaNumber==1){
+  //   //   this.PruebaDiv = true;
+  //   //   this.divlogin = false;
+  //   //   this.valorPrueba1=true;
+  //   // }
+  // }
+
+  addCurso(){
+    const dialogData = this.dialog.open(CursosModalComponent);
+    
+    dialogData.afterClosed().subscribe((value) => {
+      if(value){
+        // const IdFin = this.dataSource[this.dataSource.length -1]?.id;
+        // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
+        // this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.apellidos,value.edad, value.carrera, value.institucion)]
+      }
+      
+    })
+  }
+
+  deleteCurso(cursos:Curso){
+    this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== cursos.id);
   }
 
 }
