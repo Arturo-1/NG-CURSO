@@ -1,6 +1,7 @@
 import { Component, OnInit,Output, EventEmitter,ChangeDetectorRef} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder,  Validators, MinLengthValidator } from '@angular/forms';
 import { NgxToastService } from 'ngx-toast-notifier';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
-    private ngxToastService: NgxToastService
+    private ngxToastService: NgxToastService,
+    private httpClient: HttpClient
   ) 
   {
     this.LoginForm = this.fb.group({
