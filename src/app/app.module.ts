@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { MenuLateralComponent } from './components/Layout/menu-lateral/menu-lateral.component';
+import { CursosModule } from './components/cursos/cursos.module';
+import { HttpClientModule } from '@angular/common/http';
 import { CursosComponent } from './components/cursos/cursos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
@@ -25,8 +28,8 @@ import { TheadTableDirective } from "./components/directivas/thead-table.directi
 import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component";
 import { FooterComponent } from "./components/Layout/footer/footer.component";
 import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
-import { MenuLateralComponent } from "./components/Layout/menu-lateral/menu-lateral.component";
 import { AlumnoComponent } from "./components/alumno/alumno.component";
+import { ComponentsModule } from './components/components.module';
 
 
 
@@ -36,43 +39,48 @@ import { AlumnoComponent } from "./components/alumno/alumno.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ToolbarComponent,
-    ContenidoComponent,
-    FooterComponent,
-    MenuLateralComponent,
-    LoginComponent,
-    ModalsComponent,
-    AddAlumnoComponent,
-    MiCustomPipe,
-    PipesComponent,
-    TheadTableDirective,
-    CursosComponent,
-    AlumnoComponent
-    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    BrowserAnimationsModule, // required animations module
-    NgxToastNotifierModule.forRoot(), // NgxToastNotifierModule added
-    MatSlideToggleModule,
-    NgMaterialModule,
-    MatDialogModule,
-    MatButtonModule,
-    NgbModule,
-    MatFormFieldModule,
-    PagesModule, 
-    RouterModule,
-    
-  ],
-  entryComponents:[ContenidoComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        
+        AppComponent,
+        ToolbarComponent,
+        ContenidoComponent,
+        FooterComponent,
+        MenuLateralComponent,
+        LoginComponent,
+        ModalsComponent,
+        AddAlumnoComponent,
+        MiCustomPipe,
+        PipesComponent,
+        TheadTableDirective,
+        // CursosComponent,
+        AlumnoComponent,
+        
+    ],
+    entryComponents: [ContenidoComponent],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        ComponentsModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        BrowserAnimationsModule,
+        NgxToastNotifierModule.forRoot(),
+        MatSlideToggleModule,
+        NgMaterialModule,
+        MatDialogModule,
+        MatButtonModule,
+        NgbModule,
+        MatFormFieldModule,
+        PagesModule,
+        RouterModule,
+        HttpClientModule,
+        // ComponentsModule,
+        
+      
+    ]
 })
 export class AppModule { }
 

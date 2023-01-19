@@ -6,8 +6,9 @@ import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.compon
 import { MatDialog  } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Curso } from 'src/app/models/curso';
-// import { Curso } from '../../models/curso/curso.module';
+import {MatButtonModule} from '@angular/material/button';
 
+// import { Curso } from '../../models/curso/curso.module';
 
 @Component({
   selector: 'app-cursos',
@@ -25,12 +26,6 @@ export class CursosComponent implements OnInit {
     'precio',
     'acciones'
   ];
-
-  opcionSeleccionado:number = 0;
-  filtroBusqueda:boolean = false;
-  valorFIltro:string = '';
-  textoDeInput = new FormControl('');
-  valorInput: any;
 
   public cursos:Curso[]=[
     { 
@@ -89,10 +84,14 @@ export class CursosComponent implements OnInit {
       precio: 2450
     }, 
   ]
-  dataArreglo:any = []
+
   public dataSource:any = [];
-  public dataCursos2:any = [];
-  img:string="robotica.jpg"
+  opcionSeleccionado:number = 0;
+  filtroBusqueda:boolean = false;
+  valorFIltro:string = '';
+  textoDeInput = new FormControl('');
+  valorInput: any;
+  dataArreglo:any = []
   pruebaNumber:any = []
   val:any;
 
@@ -105,16 +104,6 @@ export class CursosComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = this.cursos
   }
-
-  // funCambio(e:any){
-  //   this.pruebaNumber = e;
-  //   console.log("dato que viene de componente alumnos 111111:", this.pruebaNumber)
-  //   // if(this.pruebaNumber==1){
-  //   //   this.PruebaDiv = true;
-  //   //   this.divlogin = false;
-  //   //   this.valorPrueba1=true;
-  //   // }
-  // }
 
   addCurso(){
     const dialogData = this.dialog.open(CursosModalComponent);
@@ -132,5 +121,5 @@ export class CursosComponent implements OnInit {
   deleteCurso(cursos:Curso){
     this.dataSource = this.dataSource.filter((dataSource:any) => dataSource.id !== cursos.id);
   }
-
+  
 }
