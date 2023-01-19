@@ -6,7 +6,7 @@ import { AlumnoModule } from './alumno/alumno.module';
 import { HomeComponent } from './home/home.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { AlumnoComponent } from './alumno/alumno.component';
-
+import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 
 const routes: Routes = [
   {
@@ -15,8 +15,13 @@ const routes: Routes = [
     children: [
       {
         path: 'cursos',
-        
-        loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+        component: CursosComponent
+        //loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+      },
+      {
+        path: 'cursos/editar',
+        component: EditCursoComponent
+        //loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
       },
       {
         path: 'alumnos',

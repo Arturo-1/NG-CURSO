@@ -7,6 +7,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditCursoComponent } from './edit-curso/edit-curso.component';
 import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
 import { AddCursoComponent } from './add-curso/add-curso.component';
+import { PipesComponent } from '../pipes/pipes.component';
+import { MiCustomPipe } from '../pipes/mi-custom.pipe';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,8 +17,8 @@ import { AddCursoComponent } from './add-curso/add-curso.component';
     
     EditCursoComponent,
     DetalleCursoComponent,
-    AddCursoComponent
-    
+    AddCursoComponent,
+    CursosComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +26,8 @@ import { AddCursoComponent } from './add-curso/add-curso.component';
     NgMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-  ]
+  
+  ],
+  
 })
 export class CursosModule { }

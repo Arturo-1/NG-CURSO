@@ -5,8 +5,9 @@ import { Component, OnInit } from '@angular/core';
 import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.component';
 import { MatDialog  } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Curso } from 'src/app/models/curso';
+
 import {MatButtonModule} from '@angular/material/button';
+import { Curso } from 'src/app/models/curso';
 
 // import { Curso } from '../../models/curso/curso.module';
 
@@ -103,6 +104,7 @@ export class CursosComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = this.cursos
+    console.log("data source:", this.dataSource)
   }
 
   addCurso(){
