@@ -10,16 +10,19 @@ const routes: Routes = [
   {
   path: '',
   component: CursosComponent,
-    children: [
-      {
-        path: 'editar',
-        component: EditCursoComponent
-      },
-      {
-        path: 'detalle',
-        component: DetalleCursoComponent
-      }
-    ]
+
+  children: [
+  {
+    path: 'editar',
+    component: EditCursoComponent
+  },
+  {
+    path: 'detalle',
+    component: DetalleCursoComponent
+    
+  }
+  
+]
   }
 ];
 
@@ -29,9 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule
   ],
-  exports:[
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class CursosRoutingModule { }
 	

@@ -9,16 +9,22 @@ import { ComponentsComponent } from './components/components.component';
 
 const routes: Routes = [
 
-  {
-    path:'components',
-        loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
-      }
-    ];
+    {
+      path:'components',
+      loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
+    },
+    {
+      path:'auth',
+      loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    },
+    {
+      path:'**',
+      redirectTo: 'auth'
+    }
+
+];
   
-  // {
-  //   path:'',
-  //   component: HomeComponent, pathMatch: 'full'
-  // },
+  
   
 
 

@@ -4,7 +4,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import { LoginComponent } from './login/login.component';
+
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
@@ -30,17 +30,12 @@ import { FooterComponent } from "./components/Layout/footer/footer.component";
 import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
 import { AlumnoComponent } from "./components/alumno/alumno.component";
 import { ComponentsModule } from './components/components.module';
-
-
-
+import { LoginComponent } from "./auth/pages/login/login.component";
 
 // import { NgMaterialModule } from "./ng-material.module";
 
-
-
 @NgModule({
     declarations: [
-        
         AppComponent,
         ToolbarComponent,
         ContenidoComponent,

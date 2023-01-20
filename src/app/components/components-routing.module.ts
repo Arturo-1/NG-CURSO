@@ -8,6 +8,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -15,13 +16,13 @@ const routes: Routes = [
     children: [
       {
         path: 'cursos',
-        component: CursosComponent
-        //loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+        component: CursosComponent,
+        // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
       },
       {
         path: 'cursos/editar',
-        component: EditCursoComponent
-        //loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+        component: EditCursoComponent,
+        // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
       },
       {
         path: 'alumnos',
