@@ -16,7 +16,6 @@ import { TheadTableDirective } from './directivas/thead-table.directive';
     RouterModule,
     NgMaterialModule,
     ComponentsRoutingModule
-   
   ],
   exports:[
     ComponentsComponent
