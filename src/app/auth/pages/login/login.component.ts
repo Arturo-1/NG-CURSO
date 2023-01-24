@@ -1,10 +1,11 @@
 import { Component, OnInit,Output, EventEmitter,ChangeDetectorRef, ElementRef} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder,  Validators, MinLengthValidator } from '@angular/forms';
 import { NgxToastService } from 'ngx-toast-notifier';
-import { HttpClient } from '@angular/common/http';
 import { Users } from '../../../models/users.module';
-import { AuthService } from '../../service/auth.service';
 import { LoginI } from '../../../models/login.interface';
+import { ResponseI } from 'src/app/models/response.interface';
+import { AuthService } from '../../service/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,13 +16,7 @@ import { LoginI } from '../../../models/login.interface';
 export class LoginComponent implements OnInit {
   LoginForm: FormGroup;
   
-  //  = new FormControl(Validators.required, Validators.minLength(8));
-
-  // LoginForm = new FormGroup({
-  //   firstUser: this.fistUserControl,
-  //   firstPassword: this.fistPasswordControl
-  // })
-
+  
   datoValidate:number = 0;
   @Output() valorEnviado = new EventEmitter();
   public error:string ='';
@@ -38,8 +33,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
     private ngxToastService: NgxToastService,
-    private httpClient: HttpClient,
-    public DataUsers: AuthService
+    // private httpClient: HttpClient,
+    private DataUsers: AuthService
   ) 
   {
     this.LoginForm = this.fb.group({
@@ -49,17 +44,17 @@ export class LoginComponent implements OnInit {
   }
   
   ngOnInit(): void {  
+    this.DataUsers.getDataUsers();
+    // console.log("info de data ????:", data)
     this.error = 'error';
     // this.LoginForm.valueChanges.subscribe((value) => {
     // });
   }
 
   ValidLogin(form:LoginI){
-    this.DataUsers.getDataUsers(form).subscribe(data => {
+    this.DataUsers.ValidLogin(form).subscribe(data => {
       console.log("DATA PROVENIENTE DEL SERVICE:",data)
     })
-
-
     // if(this.LoginForm.controls.usuario.value == "" ){
     //   this.ngxToastService.onWarning('Usuario no valido','Intente nuevamente')
     //   return
@@ -74,11 +69,9 @@ export class LoginComponent implements OnInit {
     //   return
     // }
 
-    
+
     // this.datoValidate = 1;
     // this.valorEnviado.emit(this.datoValidate);
     // this.ngxToastService.onSuccess('Bienvenido!!!' ,'Comencemos')
-    
   }
-
 }

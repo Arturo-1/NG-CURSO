@@ -21,26 +21,15 @@ const routes: Routes = [
       path:'**',
       redirectTo: 'auth'
     }
-
 ];
   
-  
-  
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-  constructor(
- 
-  ) 
-  {
-  
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    
   }
 }
