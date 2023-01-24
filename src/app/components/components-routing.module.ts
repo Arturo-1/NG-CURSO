@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
         path: 'cursos',
         component: CursosComponent,
         // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+        canActivate: [AuthGuard],
       },
       {
         path: 'cursos/editar',
@@ -29,7 +31,7 @@ const routes: Routes = [
         component:AlumnoComponent
       },
       {
-        path: 'usaurios',
+        path: 'usuarios',
         loadChildren: () => import('./usuarios/usuarios.module').then((module) => module.UsuariosModule)
       },
       // {
