@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
   @Output() valorEnviado = new EventEmitter();
   public error:string ='';
 
-  // datoUser =[
-  //   {
-  //     id: 1,
-  //     user: "admin",
-  //     password: "art12345"
-  //   }
-  // ]
+  datoUser =[
+    {
+      id: 1,
+      user: "admin",
+      password: "art12345"
+    }
+  ]
  
   constructor(
     private fb: FormBuilder,
@@ -52,26 +52,26 @@ export class LoginComponent implements OnInit {
   }
 
   ValidLogin(form:LoginI){
-    this.DataUsers.ValidLogin(form).subscribe(data => {
-      console.log("DATA PROVENIENTE DEL SERVICE:",data)
-    })
-    // if(this.LoginForm.controls.usuario.value == "" ){
-    //   this.ngxToastService.onWarning('Usuario no valido','Intente nuevamente')
-    //   return
-    // }
-    // if(this.LoginForm.controls.password.value == ""){
-    //   this.ngxToastService.onWarning('Contraseña incorrecta','Intente Nuemvamente')
-    //   return
-    // }
-    // if (this.LoginForm.controls.usuario.value != this.datoUser[0].user || this.LoginForm.controls.password.value != this.datoUser[0].password){
-    //   this.ngxToastService.onDanger('Los datos ingresados no son correctos','Favor de intentar nuevamente')
-    //   // alert("intente de nuevo");
-    //   return
-    // }
+    // this.DataUsers.ValidLogin(form).subscribe(data => {
+    //   console.log("DATA PROVENIENTE DEL SERVICE:",data)
+    // })
+    if(this.LoginForm.controls.usuario.value == "" ){
+      this.ngxToastService.onWarning('Usuario no valido','Intente nuevamente')
+      return
+    }
+    if(this.LoginForm.controls.password.value == ""){
+      this.ngxToastService.onWarning('Contraseña incorrecta','Intente Nuemvamente')
+      return
+    }
+    if (this.LoginForm.controls.usuario.value != this.datoUser[0].user || this.LoginForm.controls.password.value != this.datoUser[0].password){
+      this.ngxToastService.onDanger('Los datos ingresados no son correctos','Favor de intentar nuevamente')
+      // alert("intente de nuevo");
+      return
+    }
 
 
-    // this.datoValidate = 1;
-    // this.valorEnviado.emit(this.datoValidate);
-    // this.ngxToastService.onSuccess('Bienvenido!!!' ,'Comencemos')
+    this.datoValidate = 1;
+    this.valorEnviado.emit(this.datoValidate);
+    this.ngxToastService.onSuccess('Bienvenido!!!' ,'Comencemos')
   }
 }

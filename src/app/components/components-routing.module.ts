@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'cursos',
         component: CursosComponent,
         // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
       {
         path: 'cursos/editar',
