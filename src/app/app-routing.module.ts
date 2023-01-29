@@ -6,6 +6,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
 // import { HomeComponent } from './components/home/home.component';
 import { CursosModule } from './components/cursos/cursos.module';
 import { ComponentsComponent } from './components/components.component';
+import { HomeComponent } from "./components/home/home.component";
 
 const routes: Routes = [
 
@@ -13,13 +14,10 @@ const routes: Routes = [
       path:'components',
       loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
     },
-    {
-      path:'auth',
-      loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-    },
+   
     {
       path:'**',
-      redirectTo: 'auth'
+      redirectTo: 'home'
     }
 ];
   
