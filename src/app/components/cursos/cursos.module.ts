@@ -9,6 +9,8 @@ import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
 import { AddCursoComponent } from './add-curso/add-curso.component';
 import { PipesComponent } from '../pipes/pipes.component';
 import { MiCustomPipe } from '../pipes/mi-custom.pipe';
+import { CursosService } from 'src/app/services/cursos.service';
+import { MatCardContent } from '@angular/material/card';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { MiCustomPipe } from '../pipes/mi-custom.pipe';
     FormsModule,
     ReactiveFormsModule,
    
-  ]
+  ],
+  providers:[CursosService]
 })
 export class CursosModule { }

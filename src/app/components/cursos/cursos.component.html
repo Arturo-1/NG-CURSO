@@ -10,17 +10,18 @@
                 <div class="col-md-12">
                     <label for="">Seleccione tipo de busqueda</label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 d-flex">
                     <select class="custom-select" [(ngModel)]="opcionSeleccionado" >
                         <option hidden >Seleccione Opcion deseada</option>
-                        <option [value]="1">Nombre</option>
-                        <option [value]="2">Codigo</option>
+                        <option  *ngFor="let data of dataSource" [value]=1>{{data.nombre}}</option>
+                       
                         <!-- <option [value]="3">Nombre</option> -->
                     </select>
+                    <button class="btn btn-primary">Buscar</button>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center ">
                     <div class="row">
-                        <button mat-flat-button color="primary" ><mat-icon>movie</mat-icon>&nbsp; Agregar Nuevo Curso</button>
+                        <button mat-flat-button color="primary" routerLink="agregar" ><mat-icon>movie</mat-icon>&nbsp; Agregar Nuevo Curso</button>
                     </div>
                 </div>
             </div>
@@ -79,13 +80,13 @@
                         <ng-container matColumnDef="acciones" stickyEnd>
                             <th appTheadTable class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">{{ 'Acciones' | uppercase}}</th>
                             <td class="text-center" mat-cell *matCellDef="let element">
-                                <button class="m-1" mat-icon-button matTooltip="Eliminar Curso" (click)="deleteCurso(element)" color="warn" >
+                                <button class="m-1" mat-icon-button matTooltip="Eliminar Curso" (click)="deleteCurso(element.id)"  color="warn" >
                                     <mat-icon>delete</mat-icon>
                                 </button>
-                                <button class="m-1" mat-icon-button color="primary" routerLink="editar"  matTooltip="Actualizar informacion del Curdo">
+                                <button class="m-1" mat-icon-button color="primary" routerLink="agregar" (click)="updateCurso(element)"  matTooltip="Actualizar informacion del Curdo">
                                     <mat-icon>edit</mat-icon>
                                 </button>                            
-                               <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion del Curso">
+                               <button class="m-1" mat-icon-button color="primary" routerLink="detalle"  matTooltip="Mostrar Informacion del Curso">
                                     <mat-icon>info</mat-icon>
                                 </button> 
                             </td>
