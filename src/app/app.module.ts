@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { HomeComponent } from './components/home/home.component';
+import { CursosService } from './services/cursos.service';
 import { MenuLateralComponent } from './components/Layout/menu-lateral/menu-lateral.component';
 import { CursosModule } from './components/cursos/cursos.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -46,12 +48,13 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         MiCustomPipe,
         PipesComponent,
         TheadTableDirective,
+        HomeComponent,
         // CursosComponent,
         AlumnoComponent,
         
     ],
     entryComponents: [ContenidoComponent],
-    providers: [],
+    providers: [CursosService],
     bootstrap: [AppComponent],
     imports: [
         ComponentsModule,

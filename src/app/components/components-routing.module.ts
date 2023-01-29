@@ -8,6 +8,8 @@ import { CursosComponent } from './cursos/cursos.component';
 import { AlumnoComponent } from './alumno/alumno.component';
 import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { AddCursoComponent } from './cursos/add-curso/add-curso.component';
+import { DetalleCursoComponent } from './cursos/detalle-curso/detalle-curso.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,17 @@ const routes: Routes = [
       },
       {
         path: 'cursos/editar',
-        component: EditCursoComponent,
+        component: AddCursoComponent,
+        // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+      },
+      {
+        path: 'cursos/agregar',
+        component: AddCursoComponent,
+        // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+      },
+      {
+        path: 'cursos/detalle',
+        component: DetalleCursoComponent,
         // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
       },
       {
@@ -45,7 +57,6 @@ const routes: Routes = [
     ]
   },
 ];
-
 
 @NgModule({
   declarations: [],

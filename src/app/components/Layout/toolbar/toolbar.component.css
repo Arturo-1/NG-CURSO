@@ -9,3 +9,19 @@
     padding-left: 60px !important;
     justify-content: center !important
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.color_back{
+    background-color: rgb(72, 70, 70); 
+}
+
+mat-toolbar{
+    color: #ffff;
+}
+.title{
+    padding-left: 20px;
+}
+  
