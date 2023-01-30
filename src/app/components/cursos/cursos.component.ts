@@ -31,7 +31,6 @@ export class CursosComponent implements OnInit {
   ];
   // cursos:any
   
-
   public dataSource:any = [];
   opcionSeleccionado:number = 0;
   filtroBusqueda:boolean = false;
@@ -43,7 +42,6 @@ export class CursosComponent implements OnInit {
   val:any;
   dataCursos:any
   
- 
   constructor(
     private readonly dialog: MatDialog,
     private serviceCurso: CursosService,
@@ -51,8 +49,6 @@ export class CursosComponent implements OnInit {
     private router:Router
 
   ) { 
-
-
   }
 
   ngOnInit(): void {
@@ -80,7 +76,6 @@ export class CursosComponent implements OnInit {
     let datainfo= element
     console.log("fffff",datainfo)
     this.serviceCurso.CursoObservableData = element;
- 
   }
 
   deleteCurso(id:number){

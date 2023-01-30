@@ -10,6 +10,7 @@ import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { AddCursoComponent } from './cursos/add-curso/add-curso.component';
 import { DetalleCursoComponent } from './cursos/detalle-curso/detalle-curso.component';
+import { DetailComponent } from './alumno/detail/detail.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'alumnos',
         component:AlumnoComponent
+      },
+      {
+        path: 'alumnos/detalle',
+        component:DetailComponent
       },
       {
         path: 'usuarios',
