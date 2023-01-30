@@ -69,12 +69,8 @@ valorPrueba:boolean = false;
   }
 
   ngOnInit(): void {
-
-    this.serviceAlumno.getAlumnos().subscribe(data =>{
-      this.alumnos= data
-      this.dataSource = this.alumnos
-      console.log("DATA CURSOS:",this.dataSource)
-    })
+    this.cargarDatos();
+    
     // this.servicio.getAlumnos().subscribe(valores =>{
     //   console.log("data valores:", valores)
     // });
@@ -85,6 +81,14 @@ valorPrueba:boolean = false;
     this.dataSource =this.alumnos
     this.verSeleccion = 0;
     this.colorFiltro = 'color0';
+  }
+
+  cargarDatos(){
+    this.serviceAlumno.getAlumnos().subscribe(data =>{
+      this.alumnos= data
+      this.dataSource = this.alumnos
+      console.log("DATA CURSOS:",this.dataSource)
+    })
   }
 
   triggerFalseClick() {
@@ -171,20 +175,33 @@ valorPrueba:boolean = false;
     })
   }  
 
+  DetailAlumno(alumno:alumno){
+    console.log("data alumno detail::::", alumno)
+    this.serviceAlumno.AlumnoObservableData = alumno;
+
+  }
+  
+
   updateAlumno(alumno: alumno) {
     const dialog = this.dialog.open(AddAlumnoComponent, {
       data: alumno,
     })
     dialog.afterClosed().subscribe((data) => {
-      if (data) {
-        this.dataSource = this.dataSource.map((stu:any) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
-      }
+
+      console.log("dataconponent:",data)
+      this.serviceAlumno.updateAlumno(data).subscribe(data =>{
+        this.cargarDatos();
+      })
+      // if (data) {
+      //   data = data.map((stu:any) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
+      // }
     })
   }
 
   deleteAlumno(id:number){
     let alumnoId = id
     this.serviceAlumno.deleteAlumno(alumnoId).subscribe()
+
   }
 
 }

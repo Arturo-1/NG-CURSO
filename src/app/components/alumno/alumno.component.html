@@ -71,9 +71,9 @@
                                 <button class="m-1" mat-icon-button color="primary" (click)="updateAlumno(element)"  matTooltip="Actualizar informacion">
                                     <mat-icon>edit</mat-icon>
                                 </button>
-                                <!-- <button class="m-1" mat-icon-button color="primary" matTooltip="Mostrar Informacion">
+                                <button class="m-1" mat-icon-button color="primary" routerLink="detalle" (click)="DetailAlumno(element)" matTooltip="Mostrar Informacion">
                                     <mat-icon>info</mat-icon>
-                                </button> -->
+                                </button>
                             </td>
                         </ng-container>
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

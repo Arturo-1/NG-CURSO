@@ -25,6 +25,7 @@ export class AddAlumnoComponent implements OnInit {
   ) {
 
     this.studentForm = this.fb.group({
+      id: [''],
       nombre: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       edad: ['', [Validators.required]],
