@@ -65,7 +65,7 @@
                         <ng-container matColumnDef="star" stickyEnd>
                             <th appTheadTable class="text-center" mat-header-cell *matHeaderCellDef aria-label="row actions">{{ 'Acciones' | uppercase}}</th>
                             <td class="text-center" mat-cell *matCellDef="let element">
-                                <button class="m-1" mat-icon-button matTooltip="Eliminar Alumno" color="warn" (click)="deleteAlumno(element)">
+                                <button class="m-1" mat-icon-button matTooltip="Eliminar Alumno" color="warn" (click)="deleteAlumno(element.id)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                                 <button class="m-1" mat-icon-button color="primary" (click)="updateAlumno(element)"  matTooltip="Actualizar informacion">

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { AlumnosService } from './services/alumnos.service';
 import { HomeComponent } from './components/home/home.component';
 import { CursosService } from './services/cursos.service';
 import { MenuLateralComponent } from './components/Layout/menu-lateral/menu-lateral.component';
@@ -54,7 +55,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         
     ],
     entryComponents: [ContenidoComponent],
-    providers: [CursosService],
+    providers: [CursosService, AlumnosService],
     bootstrap: [AppComponent],
     imports: [
         ComponentsModule,

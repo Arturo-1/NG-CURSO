@@ -25,6 +25,7 @@ export class AddCursoComponent implements OnInit {
   //  public data: Curso | null,  
    
     ) {
+      console.log()
 
       this.cursoForm = this.fb.group({
         id: [''],

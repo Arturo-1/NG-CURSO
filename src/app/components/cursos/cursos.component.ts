@@ -63,13 +63,10 @@ export class CursosComponent implements OnInit {
       this.dataSource = cursos
       console.log("DATA CURSOS:",this.dataSource)
     })
-
   }
   
-
   addCurso(){
     const dialogData = this.dialog.open(CursosModalComponent);
-    
     dialogData.afterClosed().subscribe((value) => {
       if(value){
         // const IdFin = this.dataSource[this.dataSource.length -1]?.id;
@@ -87,13 +84,8 @@ export class CursosComponent implements OnInit {
   }
 
   deleteCurso(id:number){
-    console.log("dato de tabla:",id)
-      let cursoId = id
-      this.serviceCurso.deleteCurso(cursoId).subscribe()
-        
-    //   }
-    // console.log("eliminar")
-    // this.serviceCurso.deleteCurso(1).subscribe((response)=> console.log("data response:",response))
+    let cursoId = id
+    this.serviceCurso.deleteCurso(cursoId).subscribe()
   }
   
 }
