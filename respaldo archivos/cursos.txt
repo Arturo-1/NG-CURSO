@@ -1,4 +1,4 @@
-public cursos:Curso[]=[
+[
     { 
       "id": "1",
       "nombre": "Desarrollo Angular",

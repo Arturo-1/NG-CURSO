@@ -5,11 +5,12 @@ import { NgMaterialModule } from '../ng-material.module';
 import { ComponentsComponent } from './components.component';
 import { ComponentsRoutingModule } from './components-routing.module';
 import { TheadTableDirective } from './directivas/thead-table.directive';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-   ComponentsComponent
-  
+   ComponentsComponent,
+   
   ],
   imports: [
     CommonModule,

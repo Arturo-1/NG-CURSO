@@ -180,14 +180,12 @@ valorPrueba:boolean = false;
     this.serviceAlumno.AlumnoObservableData = alumno;
 
   }
-  
 
   updateAlumno(alumno: alumno) {
     const dialog = this.dialog.open(AddAlumnoComponent, {
       data: alumno,
     })
     dialog.afterClosed().subscribe((data) => {
-
       console.log("dataconponent:",data)
       this.serviceAlumno.updateAlumno(data).subscribe(data =>{
         this.cargarDatos();

@@ -75,6 +75,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         PagesModule,
         RouterModule,
         HttpClientModule,
+        NgbModule
       
     ]
 })
