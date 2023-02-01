@@ -11,6 +11,8 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { AddCursoComponent } from './cursos/add-curso/add-curso.component';
 import { DetalleCursoComponent } from './cursos/detalle-curso/detalle-curso.component';
 import { DetailComponent } from './alumno/detail/detail.component';
+import { usuario } from '../../../../../ProyectoCoreAngular/src/app/interfaces/usuario';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,12 @@ const routes: Routes = [
     path: '',
     component: ComponentsComponent,
     children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+        // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
+        // canActivate: [AuthGuard],
+      },
       {
         path: 'cursos',
         component: CursosComponent,
@@ -49,12 +57,8 @@ const routes: Routes = [
       },
       {
         path: 'usuarios',
-        loadChildren: () => import('./usuarios/usuarios.module').then((module) => module.UsuariosModule)
+        component:UsuariosComponent
       },
-      // {
-      //   path: 'home',
-      //   loadChildren: () => import('./home/home.module').then((module) => module.HomeModule)
-      // },
       {
         path: 'home',
         component: HomeComponent,

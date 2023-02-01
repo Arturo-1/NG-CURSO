@@ -4,6 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 
 
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,7 +41,8 @@ export class HomeComponent implements OnInit {
   datoValidate:any
   constructor(
     private _config: NgbCarouselConfig,
-    public router:Router
+    public router:Router,
+    
     ) { 
       _config.interval = 4000;
       _config.pauseOnHover = true;
@@ -59,7 +62,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/alumnos'])
     }
     if(id == 3){
-      this.router.navigate(['/usaurios'])
+      this.router.navigate(['/usuarios'])
     }
   }
 

@@ -2,7 +2,6 @@
 // import { alumno } from 'src/app/models/alumno.models';
 
 import { Component, OnInit } from '@angular/core';
-import { CursosModalComponent } from '../modals/cursos-modal/cursos-modal.component';
 import { MatDialog  } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -57,24 +56,13 @@ export class CursosComponent implements OnInit {
     this.serviceCurso.getCursos().subscribe(data =>{
       let cursos:Curso[] = data
       this.dataSource = cursos
-      console.log("DATA CURSOS:",this.dataSource)
+      // console.log("DATA CURSOS:",this.dataSource)
     })
   }
   
-  addCurso(){
-    const dialogData = this.dialog.open(CursosModalComponent);
-    dialogData.afterClosed().subscribe((value) => {
-      if(value){
-        // const IdFin = this.dataSource[this.dataSource.length -1]?.id;
-        // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
-        // this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.apellidos,value.edad, value.carrera, value.institucion)]
-      }
-    })
-  }
-
   updateCurso(element:any){
     let datainfo= element
-    console.log("fffff",datainfo)
+    // console.log("fffff",datainfo)
     this.serviceCurso.CursoObservableData = element;
   }
 
@@ -82,5 +70,4 @@ export class CursosComponent implements OnInit {
     let cursoId = id
     this.serviceCurso.deleteCurso(cursoId).subscribe()
   }
-  
 }
