@@ -14,7 +14,6 @@ import { DetailComponent } from './alumno/detail/detail.component';
 import { usuario } from '../../../../../ProyectoCoreAngular/src/app/interfaces/usuario';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
-
 const routes: Routes = [
   {
     path: '',
