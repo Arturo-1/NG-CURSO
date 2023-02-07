@@ -1,9 +1,9 @@
 export interface LoginI{
     id: number,
-    first_name: string,
-    last_name: string,
+    nombre: string,
+    apellidso: string,
+    correo: string,
     usuario: string,
     password: string,
-    correo: string,
     avatar: string
 }

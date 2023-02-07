@@ -40,10 +40,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
 @NgModule({
     declarations: [
         AppComponent,
-        ToolbarComponent,
-        ContenidoComponent,
-        FooterComponent,
-        MenuLateralComponent,
+        
         LoginComponent,
         ModalsComponent,
         AddAlumnoComponent,
@@ -60,7 +57,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
     providers: [CursosService, AlumnosService],
     bootstrap: [AppComponent],
     imports: [
-        ComponentsModule,
+        
         BrowserModule,
         AppRoutingModule,
         FormsModule,

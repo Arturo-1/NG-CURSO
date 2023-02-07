@@ -21,7 +21,8 @@ export class CursosService {
     fecha_Inicial: 'prueba 6',
     img: 'prueba 7',
     precio: 1})
-  // @Output() disparadorCurso:EventEmitter<any> = new EventEmitter();
+
+   
 
   API_SERVER:string = environment.baseURL
   constructor(

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsuariosDataService } from '../../services/usuarios-data.service';
 import { User } from '../../../../../../../../../Proyectos/Genomi-k/FrontEnd/admin-genomik-ng/src/modules/config/models/user.model';
-import { Users } from 'src/app/models/user.interface';
+import { UsersI } from 'src/app/models/user.interface';
 
 // export interface PeriodicElement {
 //   name: string;
@@ -19,7 +19,7 @@ import { Users } from 'src/app/models/user.interface';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
-  ELEMENT_DATA: Users[]= [];
+  ELEMENT_DATA: UsersI[]= [];
   dataSource:any
   displayedColumns: string[] = ['id', 'nombre', 'correo','correo','usuario','contraseña','tipo usuario', 'Acciones'];
   
@@ -36,12 +36,12 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.servUser.getUsuarios().subscribe(data =>{
-      let users:Users[] = data
-      console.log("gggggggg:",data)
+      let users:UsersI[] = data
+      // console.log("gggggggg:",data)
       this.ELEMENT_DATA = users
-      console.log("ssss:", this.ELEMENT_DATA)
+      // console.log("ssss:", this.ELEMENT_DATA)
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-      console.log("DATA CURSOS:",this.dataSource)
+      // console.log("DATA CURSOS:",this.dataSource)
     })
   }
   

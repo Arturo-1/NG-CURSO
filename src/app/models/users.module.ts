@@ -1,12 +1,16 @@
 
-export class Users {
+export class User{
   constructor(
     public id: string,
-    public first_name:string, 
-    public last_name:string,
+    public nombre:string, 
+    public apellidos:string,
     public usuario: string,
-    public password: number,
+    public password: string,
     public correo: string,
-    public avatar: String,
+    public tipo_user: String,
   ){}
+
+  get fullName(){
+    return this.nombre+' '+ this.apellidos
+  }
 }
