@@ -16,10 +16,12 @@ import { SessionService } from '../../service/session.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnDestroy {
+
+  validarcookie:any
   // LoginForm: FormGroup;
   public loading = false
   public LoginForm = this.fb.group({
-    email: ['', [Validators.required]],
+    usuario: ['', [Validators.required]],
     password: ['',[Validators.required, Validators.minLength(8)]],
   });
   private destroyed$ = new Subject();
@@ -33,7 +35,12 @@ export class LoginComponent implements OnDestroy {
   //     password: "art12345"
   //   }
   // ]
+data:any
+dataId:number = 0;
+datoSession:any
+
   constructor(
+    
     private fb: FormBuilder,
     private ref: ChangeDetectorRef,
     private ngxToastService: NgxToastService,
@@ -50,6 +57,7 @@ export class LoginComponent implements OnDestroy {
   }
   ngOnDestroy(): void {
     this.destroyed$.next(true)
+    
   }
   // ngOnInit(): void {  
   //   this.DataUsers.getDataUsers();
@@ -60,17 +68,45 @@ export class LoginComponent implements OnDestroy {
   // }
   onLogin(){
     this.loading = true
+    let usuario = this.LoginForm.get('usuario')?.value || '';
+    let password = this.LoginForm.get('password')?.value || '';
 
-    this.DataUsers.login({
-      email:this.LoginForm.get('email')?.value || '',
-      password: this.LoginForm.get('password')?.value || ''
-    }).subscribe(()=>{
-      this.loading;
-      this.router.navigate(['components']);
-    
-    }  )
-    
+
+    this.DataUsers.getDataUsers().subscribe((user) => {
+      console.log("Informacion de usuario que viene del service",user)
+      user.forEach((valData: any ) => {
+        if(valData.usuario === usuario && valData.password === password)
+        this.dataId = valData.id
+        {
+         
+        }
+      });
+      console.log(":::",this.dataId)
+     
+      if(this.dataId !=0 ){
+        this.DataUsers.login(this.dataId).subscribe((data) =>{
+          // console.log("informacion de data filtrada del service:", data)
+          this.datoSession= data.nombre
+          // console.log("informacion dato:", this.datoSession)
+          localStorage.setItem("token", this.datoSession) ;
+          this.validarcookie= localStorage.getItem('token')
+console.log("VALIDANDO", this.validarcookie)
+          // localStorage.setItem('usuario',JSON.stringify(data.nombre) );
+          this.router.navigate(['dahsboard/home'])
+        })
+      }
+      else{
+          this.loading = false;
+          alert('El usuario y/o contraseña son incorrectos');
+      }
+    })
+
+
   }
+  validtoken(){
+    localStorage.getItem("token");
+  }
+  
 
   // this.DataUsers.ValidLogin(form).subscribe(data => {
     //   console.log("DATA PROVENIENTE DEL SERVICE:",data)

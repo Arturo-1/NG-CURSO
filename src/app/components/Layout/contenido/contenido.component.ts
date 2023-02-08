@@ -11,7 +11,7 @@ export class ContenidoComponent implements OnInit {
   constructor(
   ) {
   }
-
+  
   ngOnInit(): void {
   }
 }

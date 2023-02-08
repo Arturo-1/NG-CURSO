@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 import { ResponseI } from 'src/app/models/response.interface';
 import { SessionService } from './session.service';
 import { StringLiteralLike } from 'typescript';
-import { UsersI, LoginSuccessFul, SingleUserResponse } from '../../models/user.interface';
+import { UsersI, SingleUserResponse } from '../../models/user.interface';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -23,28 +23,42 @@ export class AuthService {
     private readonly sessionService: SessionService
 
   ) {}
-    getDataUsers(): Observable<LoginI[]> {
-      return this.httpClient.get<LoginI[]>(`${environment.baseURL}/users`);
-    }
 
-    getData(){
-      return this.httpClient.get('https://63c80da9e52516043f4a983c.mockapi.io/api/v1/users');
+    getDataUsers(): Observable<any> {
+      
+      return this.httpClient.get<SingleUserResponse>(`${this.API_SERVER}/usuarios`)
+      .pipe(
+        tap(({data}) => data )
+       )
     }
-
-    // ValidLogin(form:LoginI):Observable<ResponseI>{
-    //   let ruta = 'https://63c80da9e52516043f4a983c.mockapi.io/api/v1/users'
-    //   return this.httpClient.post<ResponseI>(ruta, form)
+    // getData(){
+    //   return this.httpClient.get('https://63c80da9e52516043f4a983c.mockapi.io/api/v1/users');
     // }
 
-    login(data: {email:string, password:String}):Observable<User>{
+    // // ValidLogin(form:LoginI):Observable<ResponseI>{
+    // //   let ruta = 'https://63c80da9e52516043f4a983c.mockapi.io/api/v1/users'
+    // //   return this.httpClient.post<ResponseI>(ruta, form)
+    // // }
+
+    // getUsuarioUser(User: any): Observable<any>{
+     
+    //   let rutaUrl=`${this.API_SERVER}usuarios?user=${User}`;
+    //   return this.httpClient.get<any>(rutaUrl)
+    // }
+
+    login(id:any):Observable<any>{
+      console.log("id inicial:", id)
       return this.httpClient
-      .post<LoginSuccessFul>(`${this.API_SERVER_LOGIIN}/login`, data)
+      .get<SingleUserResponse>(`${this.API_SERVER}usuarios/${id}`)
       .pipe(
-        tap((data)=> localStorage.setItem('token', data.token)),
-        mergeMap(() => this.httpClient.get<UsersI>(`${this.API_SERVER}/usuarios/1`)
+        tap(({data}) => { 
+          localStorage.setItem('token', data.token)
+        }
         ),
+        // mergeMap(() => this.httpClient.get<SingleUserResponse>(`${this.API_SERVER}/usuarios/1`)
+        // ),
         map(
-          (data) => 
+          ({data}) => 
           new User(
             data.id,
             data.nombre,

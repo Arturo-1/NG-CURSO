@@ -1,24 +1,31 @@
 
 <nav>
-<p>
-  <mat-toolbar class="color_back" >
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon >menu</mat-icon>
-    </button>
-    <span class="title">My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>user</mat-icon>{{user}}
-    </button>
-
-  </mat-toolbar>
-</p>
+  <p>
+    <mat-toolbar class="color_back" >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon >menu</mat-icon>
+      </button>
+      <span class="title">My App</span>
+      <mat-list-item>
+        <a >
+          <span class="pr-3" ><mat-icon class="ml-5" >person</mat-icon></span>
+          <span>{{user.nombre}}</span>
+        </a>
+      </mat-list-item>
+     
+      <span class="example-spacer"></span>
+      
+      <mat-list-item>
+        <a >
+          <span class="" ></span>
+          <span>Cerrar Session</span>
+        </a>
+      </mat-list-item>
+      
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      </button>
+    </mat-toolbar>
+  </p>
 </nav>
 <!-- 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

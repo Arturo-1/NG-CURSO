@@ -28,8 +28,8 @@ import { ModalsComponent } from './components/modals/modals.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { matFormFieldAnimations, MatFormFieldModule } from '@angular/material/form-field';
 import { TheadTableDirective } from "./components/directivas/thead-table.directive";
-// import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component";
-// import { FooterComponent } from "./components/Layout/footer/footer.component";
+import { ToolbarComponent } from "./components/Layout/toolbar/toolbar.component";
+import { FooterComponent } from "./components/Layout/footer/footer.component";
 import { ContenidoComponent } from "./components/Layout/contenido/contenido.component";
 import { AlumnoComponent } from "./components/alumno/alumno.component";
 import { ComponentsModule } from './components/components.module';
@@ -40,9 +40,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
 @NgModule({
     declarations: [
         AppComponent,
-       
-        ContenidoComponent,
-       
+        
         LoginComponent,
         ModalsComponent,
         AddAlumnoComponent,
@@ -59,7 +57,6 @@ import { LoginComponent } from "./auth/pages/login/login.component";
     providers: [CursosService, AlumnosService],
     bootstrap: [AppComponent],
     imports: [
-        
         BrowserModule,
         AppRoutingModule,
         FormsModule,
@@ -76,8 +73,8 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         PagesModule,
         RouterModule,
         HttpClientModule,
-        NgbModule, 
+        NgbModule
+      
     ]
 })
 export class AppModule { }
-

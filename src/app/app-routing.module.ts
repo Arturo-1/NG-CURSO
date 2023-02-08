@@ -8,17 +8,20 @@ import { CursosModule } from './components/cursos/cursos.module';
 import { ComponentsComponent } from './components/components.component';
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from './auth/pages/login/login.component';
+import { ContenidoComponent } from './components/Layout/contenido/contenido.component';
 
 const routes: Routes = [
-
-    {
-      path:'components',
-      loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
-    },
     {
       path:'login',
       component: LoginComponent
     },
+    {
+      path:'dahsboard',
+      // component: HomeComponent,
+      loadChildren: () => import('./components/components.module').then(m => m.ComponentsModule),
+    },
+
+
     {
       path:'**',
       redirectTo: 'home'

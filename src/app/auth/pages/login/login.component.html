@@ -5,12 +5,12 @@
             <div class="col-md-12 d-flex justify-content-center align-items-center">
                 <i class="fa fa-user mr-4 "></i>
                 <input placeholder="Nombre" class="form-control"
-                name="user" formControlName="email" type="text" id="user" required>  
+                name="user" formControlName="usuario" type="text" id="user" required>  
             </div>
             <br>
         </div>
-        <div class="col-md-12 text-left ml-4 mt-1" *ngIf="LoginForm.controls['email'].invalid && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)" [ngClass]="error" >
-            <span *ngIf="LoginForm.controls['email'].errors">
+        <div class="col-md-12 text-left ml-4 mt-1" *ngIf="LoginForm.controls['usuario'].invalid && (LoginForm.controls['usuario'].dirty || LoginForm.controls['usuario'].touched)" [ngClass]="error" >
+            <span *ngIf="LoginForm.controls['usuario'].errors">
                 El nombre es requerido
             </span>
         </div>
@@ -21,7 +21,7 @@
                 <input placeholder="Contraseña" class="form-control" formControlName="password" type="password" id="password" minlength="8">
             </div>
         </div>
-        <div class="col-md-12 text-left ml-4 mt-1" *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)" [ngClass]="error" >
+        <div class="col-md-12 text-left ml-4 mt-1" *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['usuario'].dirty || LoginForm.controls['usuario'].touched)" [ngClass]="error" >
         <div  *ngIf="LoginForm.controls['password'].errors?.['minlength']">
             Minimo de caracteres es de 8
           </div>

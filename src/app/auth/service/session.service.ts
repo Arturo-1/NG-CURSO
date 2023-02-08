@@ -9,6 +9,9 @@ export class SessionService {
   private user = new BehaviorSubject<User | null>(null)
   public user$ = this.user.asObservable();
   constructor() { 
+
+    this.user$.subscribe((user)=>
+    console.log("usuario logueado:::", user))
     
   }
   setUser(user:User): void{

@@ -5,13 +5,11 @@ export interface UsersI {
     correo: string,
     usuario: string,
     password: string,
+    token:string,
     tipo_user: string
 
 }
 
-export interface LoginSuccessFul{
-    token:string;
-}
 export interface SingleUserResponse{
     data: UsersI;
     support:{
