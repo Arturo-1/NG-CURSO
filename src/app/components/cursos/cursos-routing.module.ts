@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CursosComponent } from './cursos.component';
 import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
 import { EditCursoComponent } from './edit-curso/edit-curso.component';
+import { AddCursoComponent } from './add-curso/add-curso.component';
 
 
 const routes: Routes = [
@@ -13,12 +14,16 @@ const routes: Routes = [
 
   children: [
   {
-    path: 'editar',
-    component: EditCursoComponent
+    path: 'agregar',
+    component: AddCursoComponent
   },
   {
     path: 'detalle',
     component: DetalleCursoComponent
+  },
+  {
+    path: 'editar',
+    component: EditCursoComponent
   }
   
 ]

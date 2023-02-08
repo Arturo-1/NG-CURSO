@@ -6,19 +6,21 @@
         <mat-icon >menu</mat-icon>
       </button>
       <span class="title">My App</span>
-      <mat-list-item>
+      <mat-list-item *ngIf="usuarioSession !=0">
         <a >
           <span class="pr-3" ><mat-icon class="ml-5" >person</mat-icon></span>
-          <span>{{user.nombre}}</span>
+          <span>{{user}}</span>
         </a>
       </mat-list-item>
-     
       <span class="example-spacer"></span>
-      
-      <mat-list-item>
-        <a >
-          <span class="" ></span>
-          <span>Cerrar Session</span>
+      <mat-list-item *ngIf="usuarioSession !=0">
+        <a (click)="logout()">
+          <div class="d-flex justify-content-center align-items-center">
+          <span class="mr-3">Logout</span>
+          
+            <mat-icon >logout</mat-icon>
+          </div>
+          
         </a>
       </mat-list-item>
       

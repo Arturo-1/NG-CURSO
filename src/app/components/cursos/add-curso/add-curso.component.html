@@ -21,14 +21,7 @@
                     <mat-form-field class="example-full-width col-md-6">
                         <mat-label>Tutor</mat-label>
                         <input matInput  formControlName="tutor">
-                    </mat-form-field>
-                    <!-- <mat-form-field class="col-md-6">
-                        <input matInput type="date" formControlName="fecha_inicio"/>
-                    </mat-form-field> -->
-                    <!-- <mat-form-field class="example-full-width col-md-6">
-                        <mat-label>Fecha de inicio</mat-label>
-                        <input matInput placeholder="Fehca de inicio del curso">
-                    </mat-form-field> -->
+                    </mat-form-field>                   
                     <mat-form-field class="example-full-width col-md-6">
                         <mat-label>Codigo</mat-label>
                         <input matInput  formControlName="codigo" >
@@ -43,10 +36,10 @@
                         <textarea matInput  formControlName="descripcion"></textarea>
                     </mat-form-field>
 
-                    <button class="m-3 btn-success" mat-button type="submit"  matTooltip="Agregar Curso" >
-                        <mat-icon>edit_square</mat-icon>&nbsp;&nbsp; Modificar
+                    <button class="m-3 btn-success"  mat-button type="submit" (click)="AddCurso(cursoForm.value)" matTooltip="Agregar Curso" >
+                        <mat-icon>edit_square</mat-icon>&nbsp;&nbsp;Agregar
                     </button>
-                    <button class="m-3 btn-danger" routerLink="/cursos" mat-button type="submit"  matTooltip="Agregar Curso" >
+                    <button class="m-3 btn-danger" routerLink="/dashboard/cursos" mat-button (click)="clear()"  matTooltip="Agregar Curso" >
                         <mat-icon>close</mat-icon>Cancelar
                     </button>
                 </div>   

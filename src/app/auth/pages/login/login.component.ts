@@ -73,26 +73,20 @@ datoSession:any
 
 
     this.DataUsers.getDataUsers().subscribe((user) => {
-      console.log("Informacion de usuario que viene del service",user)
+      
       user.forEach((valData: any ) => {
         if(valData.usuario === usuario && valData.password === password)
         this.dataId = valData.id
         {
          
         }
-      });
-      console.log(":::",this.dataId)
-     
+      });    
       if(this.dataId !=0 ){
         this.DataUsers.login(this.dataId).subscribe((data) =>{
-          // console.log("informacion de data filtrada del service:", data)
-          this.datoSession= data.nombre
-          // console.log("informacion dato:", this.datoSession)
+          this.datoSession= `${data.nombre} ${data.apellidos}`
           localStorage.setItem("token", this.datoSession) ;
-          this.validarcookie= localStorage.getItem('token')
-console.log("VALIDANDO", this.validarcookie)
-          // localStorage.setItem('usuario',JSON.stringify(data.nombre) );
-          this.router.navigate(['dahsboard/home'])
+          this.validarcookie= localStorage.getItem('token')      
+          this.router.navigate(['dashboard/home'])
         })
       }
       else{
@@ -106,8 +100,6 @@ console.log("VALIDANDO", this.validarcookie)
   validtoken(){
     localStorage.getItem("token");
   }
-  
-
   // this.DataUsers.ValidLogin(form).subscribe(data => {
     //   console.log("DATA PROVENIENTE DEL SERVICE:",data)
     // })
@@ -124,8 +116,6 @@ console.log("VALIDANDO", this.validarcookie)
     //   // alert("intente de nuevo");
     //   return
     // }
-
-
     // this.datoValidate = 1;
     // this.valorEnviado.emit(this.datoValidate);
   // this.ngxToastService.onSuccess('Bienvenido!!!' ,'Comencemos')

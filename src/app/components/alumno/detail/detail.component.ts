@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   }
 
   returnAlumnos(){
-    this.router.navigate(['/alumnos'])
+    this.router.navigate(['dashboard/alumnos'])
   }
 
 }

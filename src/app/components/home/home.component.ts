@@ -56,13 +56,13 @@ export class HomeComponent implements OnInit {
   filterCorousel(id:number){
     console.log("dato id:",id)
     if(id == 1){
-      this.router.navigate(['dahsboard/cursos'])
+      this.router.navigate(['dashboard/cursos'])
     }
     if(id == 2){
-      this.router.navigate(['dahsboard/alumnos'])
+      this.router.navigate(['dashboard/alumnos'])
     }
     if(id == 3){
-      this.router.navigate(['dahsboard/usuarios'])
+      this.router.navigate(['dashboard/usuarios'])
     }
   }
 

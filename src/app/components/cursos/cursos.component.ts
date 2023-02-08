@@ -24,7 +24,7 @@ export class CursosComponent implements OnInit {
     'codigo',
     'tutor',
     'area',
-    'fecha Inicial',
+    
     'precio',
     'acciones'
   ];
@@ -40,6 +40,7 @@ export class CursosComponent implements OnInit {
   pruebaNumber:any = []
   val:any;
   dataCursos:any
+  datoElement:any=[]
   
   constructor(
     private readonly dialog: MatDialog,
@@ -51,8 +52,9 @@ export class CursosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.dataSource = this.cursos
-    // console.log("data source:", this.dataSource)
+    this.dataGetCursos();
+  }
+  dataGetCursos(){
     this.serviceCurso.getCursos().subscribe(data =>{
       let cursos:Curso[] = data
       this.dataSource = cursos
@@ -61,13 +63,13 @@ export class CursosComponent implements OnInit {
   }
   
   updateCurso(element:any){
-    let datainfo= element
-    // console.log("fffff",datainfo)
     this.serviceCurso.CursoObservableData = element;
   }
-
+ 
   deleteCurso(id:number){
     let cursoId = id
-    this.serviceCurso.deleteCurso(cursoId).subscribe()
+    this.serviceCurso.deleteCurso(cursoId).subscribe(data =>{
+      this.dataGetCursos();
+    })
   }
 }

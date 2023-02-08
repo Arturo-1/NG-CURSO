@@ -11,7 +11,7 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { AddCursoComponent } from './cursos/add-curso/add-curso.component';
 import { DetalleCursoComponent } from './cursos/detalle-curso/detalle-curso.component';
 import { DetailComponent } from './alumno/detail/detail.component';
-import { usuario } from '../../../../../ProyectoCoreAngular/src/app/interfaces/usuario';
+
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
@@ -33,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: 'cursos/editar',
-        component: AddCursoComponent,
+        component: EditCursoComponent,
         // loadChildren: () => import('./cursos/cursos.module').then((module) => module.CursosModule)
       },
       {

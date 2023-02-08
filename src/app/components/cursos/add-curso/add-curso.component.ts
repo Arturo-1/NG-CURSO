@@ -13,7 +13,7 @@ import { Curso } from 'src/app/models/curso';
 export class AddCursoComponent implements OnInit {
 
   cursoForm:FormGroup;
-  arrayData:Curso[] | undefined
+  
   
   resdata:any
   data$: any;
@@ -25,7 +25,7 @@ export class AddCursoComponent implements OnInit {
   //  public data: Curso | null,  
    
     ) {
-      console.log()
+   
 
       this.cursoForm = this.fb.group({
         id: [''],
@@ -39,20 +39,20 @@ export class AddCursoComponent implements OnInit {
   
       })
 
-      this.data$ =this.serviceCurso.CursoObserbable;
-      this.dataCurso= this.data$.source._value;
-      console.log("data de service:",this.data$.source._value)
-        // this.arrayData = data
-        if(this.dataCurso){
-          console.log("entre")
-          this.cursoForm.patchValue(this.dataCurso)
-          console.log("info dddd:",this.cursoForm)
-        }
-
+      
    }
 
   ngOnInit(): void {
     
+  }
+
+  AddCurso(form:any){
+    this.serviceCurso.AddCurso(form).subscribe(data =>{
+    })
+  }
+
+  clear(){
+    this.cursoForm.reset();
   }
 
   ValidCursoForm(f:NgForm){
