@@ -53,6 +53,8 @@ export class AuthService {
       .pipe(
         tap(({data}) => { 
           localStorage.setItem('token', data.token)
+          localStorage.setItem('tipoUsuario', data.tipo_user)
+         
         }
         ),
         // mergeMap(() => this.httpClient.get<SingleUserResponse>(`${this.API_SERVER}/usuarios/1`)

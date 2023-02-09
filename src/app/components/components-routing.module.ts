@@ -56,6 +56,7 @@ const routes: Routes = [
       },
       {
         path: 'usuarios',
+        canActivate: [AuthGuard],
         component:UsuariosComponent
       },
       {

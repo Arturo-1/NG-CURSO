@@ -16,7 +16,30 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.router.navigate(['usarios']).then(() => false)
+
+   return this.validCookie();
   }
-  
+
+  validCookie(
+
+  ){
+    if (sessionStorage.getItem('roles')) {
+          return true;
+        } else {
+          // return false;
+          return this.router.navigate(['dashboard/home']).then(() => { alert('No cuentas con permisos para ver esta seccion'); return false });
+        }
+  }
 }
+
+  // checkAdmin() {
+  //   if (sessionStorage.getItem('role')) {
+  //     return true;
+    // } else {
+  //     this.router.navigate(['home']);
+  //     return false;
+  //   }
+  // }
+// }
+
+
