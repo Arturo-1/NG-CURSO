@@ -42,14 +42,6 @@ export class AddAlumnoComponent implements OnInit {
   ngOnInit(): void {
     this.error = 'error';
   }
-  // addConfirm(){
-  //   console.log("valores de formulario:", this.studentForm.value);
-  //   // const dialog = this.dialogRef.open(AddAlumnoComponent);
-   
-  // }
-
-  // close(){
-  // this.dialog.close();
-  // }
+  
 
 }
