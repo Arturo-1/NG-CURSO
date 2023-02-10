@@ -1,20 +1,35 @@
 
 <nav>
-<p>
-  <mat-toolbar class="color_back" >
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon >menu</mat-icon>
-    </button>
-    <span class="title">My App</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+  
+    <mat-toolbar class="color_back" >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon >menu</mat-icon>
+      </button>
+      <span ><a class="title" routerLink="home"> Cursos Online </a></span>
+      <mat-list-item >
+        <a >
+          <div class="d-flex justify-content-center align-items-center">
+          <span class="pr-3" ><mat-icon class="ml-5 mt-2 img_user" >person</mat-icon></span>
+          <span>{{user}}</span>
+          </div>
+        </a>
+      </mat-list-item>
+      <span class="example-spacer"></span>
+      <mat-list-item *ngIf="usuarioSession !=0">
+        <a (click)="logout()">
+          <div class="d-flex justify-content-center align-items-center">
+            <span class="mr-3">Logout</span>
+            
+            <mat-icon >logout</mat-icon>
+          </div>
+          
+        </a>
+      </mat-list-item>
+      
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      </button>
+    </mat-toolbar>
+  
 </nav>
 <!-- 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

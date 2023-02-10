@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseURL: 'https://63d2b54a06556a0fdd42d687.mockapi.io/'
+  baseURL: 'https://63d2b54a06556a0fdd42d687.mockapi.io/',
+  baseLogin: 'https://reqres.in/api'
 };
 /*
  * For easier debugging in development mode, you can import the following file

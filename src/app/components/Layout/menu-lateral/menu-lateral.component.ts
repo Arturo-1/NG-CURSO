@@ -23,7 +23,7 @@ export class MenuLateralComponent implements OnInit {
   );
 
   private _mobileQueryListener: () => void;
-
+  usuarioSession:any
   constructor(private MatButtonModule:MatButtonModule,
     changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher
@@ -34,6 +34,8 @@ export class MenuLateralComponent implements OnInit {
      }
 
      ngOnDestroy(): void {
+      this.usuarioSession = sessionStorage.getItem('roles')
+      console.log("data de session::", this.usuarioSession)
       this.mobileQuery.removeListener(this._mobileQueryListener);
     }
     shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);

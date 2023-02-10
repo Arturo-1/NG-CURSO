@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxToastNotifierModule } from 'ngx-toast-notifier';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgMaterialModule } from "./ng-material.module";
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlumnosService } from './services/alumnos.service';
 import { HomeComponent } from './components/home/home.component';
 import { CursosService } from './services/cursos.service';
@@ -39,10 +40,7 @@ import { LoginComponent } from "./auth/pages/login/login.component";
 @NgModule({
     declarations: [
         AppComponent,
-        ToolbarComponent,
-        ContenidoComponent,
-        FooterComponent,
-        MenuLateralComponent,
+        
         LoginComponent,
         ModalsComponent,
         AddAlumnoComponent,
@@ -52,13 +50,13 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         HomeComponent,
         // CursosComponent,
         AlumnoComponent,
+        UsuariosComponent
         
     ],
     entryComponents: [ContenidoComponent],
     providers: [CursosService, AlumnosService],
     bootstrap: [AppComponent],
     imports: [
-        ComponentsModule,
         BrowserModule,
         AppRoutingModule,
         FormsModule,
@@ -75,8 +73,8 @@ import { LoginComponent } from "./auth/pages/login/login.component";
         PagesModule,
         RouterModule,
         HttpClientModule,
+        NgbModule
       
     ]
 })
 export class AppModule { }
-

@@ -1,5 +1,5 @@
 <main class="login">
-    <form [formGroup]="LoginForm"  (ngSubmit)="ValidLogin(LoginForm.value)" >
+    <form [formGroup]="LoginForm"  >
         <h1 class="title"> Ingreso Sistema</h1>
         <div class="row d-flex">   
             <div class="col-md-12 d-flex justify-content-center align-items-center">
@@ -28,7 +28,7 @@
         </div>
         <br>
         <a href="#" class="link">Recuperar Contraseña?</a>
-        <button class="" type="submit" id="btnLogin">Login</button>
+        <button [disabled]="loading" mat-flat-button color="primary" (click)="onLogin()">{{ loading ? 'Iniciando sesión' : 'Ingresar' }}</button>
     </form>
 
      

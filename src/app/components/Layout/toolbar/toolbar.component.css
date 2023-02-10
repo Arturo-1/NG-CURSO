@@ -15,7 +15,9 @@
 }
 
 .color_back{
-    background-color: rgb(72, 70, 70); 
+    
+    background-color: #0049b7;
+   
 }
 
 mat-toolbar{
@@ -23,5 +25,13 @@ mat-toolbar{
 }
 .title{
     padding-left: 20px;
+    font-size: 30px;
+    color: #ffff !important;
+    text-decoration:none;
+
+}
+
+.img-user{
+    transform: scale(1.4); 
 }
   

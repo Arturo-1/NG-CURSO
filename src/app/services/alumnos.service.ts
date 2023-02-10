@@ -33,6 +33,11 @@ export class AlumnosService {
     console.log(this.API_SERVER)
     return this.http.get<alumno[]>(`${this.API_SERVER}/alumnos`);
   }
+  AddAlumno(form:any):Observable<alumno[]>{
+    let rutaURL = `${this.API_SERVER}/alumnos` ;
+    return this.http.post<any>(rutaURL, form)
+  }
+  
 
   updateAlumno(dataUpdate:any):Observable<alumno>{
     let alumnoId = dataUpdate.id

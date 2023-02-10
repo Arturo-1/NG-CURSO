@@ -163,45 +163,44 @@ valorPrueba:boolean = false;
     }
   }
 
-  addAlumno(){
-    const dialogData = this.dialog.open(AddAlumnoComponent);
- 
-    dialogData.afterClosed().subscribe((value) => {
-      if(value){
-        const IdFin = this.dataSource[this.dataSource.length -1]?.id;
-        // this.dataSource.push(IdFin + 1, value.nombre, value.edad, value.carrera, value.institucion)
-        this.dataSource = [...this.dataSource, new alumno(IdFin + 1, value.nombre, value.apellidos,value.edad, value.carrera, value.institucion)]
-      }   
-    })
-  }  
+  
 
   DetailAlumno(alumno:alumno){
-    console.log("data alumno detail::::", alumno)
     this.serviceAlumno.AlumnoObservableData = alumno;
-
   }
-  
+   
+  AddAlumno() {
+    const dialog = this.dialog.open(AddAlumnoComponent, {
+      data: alumno,
+    })
+    dialog.afterClosed().subscribe((data) => {
+      
+      this.serviceAlumno.AddAlumno(data).subscribe(data =>{
+        this.cargarDatos();
+      })
+    })
+  }
 
   updateAlumno(alumno: alumno) {
     const dialog = this.dialog.open(AddAlumnoComponent, {
       data: alumno,
     })
     dialog.afterClosed().subscribe((data) => {
-
-      console.log("dataconponent:",data)
+      
       this.serviceAlumno.updateAlumno(data).subscribe(data =>{
         this.cargarDatos();
       })
-      // if (data) {
-      //   data = data.map((stu:any) => stu.id === alumno.id  ? { ...stu, ...data } : stu)
-      // }
     })
   }
 
   deleteAlumno(id:number){
     let alumnoId = id
-    this.serviceAlumno.deleteAlumno(alumnoId).subscribe()
-
+    this.serviceAlumno.deleteAlumno(alumnoId).subscribe(data =>{
+      this.cargarDatos();
+    }
+      
+    )
+    
   }
 
 }

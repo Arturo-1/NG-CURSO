@@ -11,17 +11,9 @@ import { Curso } from '../models/curso';
   providedIn: 'root'
 })
 export class CursosService {
-  public dispCursoPrivate:BehaviorSubject<Curso> = new BehaviorSubject<Curso>({
-    id: 1, 
-    nombre:'prueba', 
-    area:'prueba 2',
-    codigo: 1,
-    descripcion: 'prueba 4',
-    tutor: 'prueba 5',
-    fecha_Inicial: 'prueba 6',
-    img: 'prueba 7',
-    precio: 1})
-  // @Output() disparadorCurso:EventEmitter<any> = new EventEmitter();
+  public dispCursoPrivate:BehaviorSubject<Curso> = new BehaviorSubject<any>({})
+
+   
 
   API_SERVER:string = environment.baseURL
   constructor(
@@ -40,16 +32,20 @@ set CursoObservableData(data:Curso){
     return this.http.get<Curso[]>(`${this.API_SERVER}/cursos`);
   }
 
-  // deleteCurso(id:number): Observable<void>{
-  //   return this.http.delete<void>(`${this.API_SERVER}/cursos/?id=1`)
+  AddCurso(form:any):Observable<any>{
+    let rutaURL = `${this.API_SERVER}/cursos` ;
+    return this.http.post<any>(rutaURL, form)
+  }
   
-  // }
-  deleteCurso(id:any): Observable<any>{
+  updateCurso(form:any):Observable<Curso>{
+    let cursoId = form.id
+    let rutaURL = `${this.API_SERVER}cursos/${cursoId}`
+    return this.http.put<Curso>(rutaURL, form)
+  }
 
-    console.log("llegue a service", id);
+  
+  deleteCurso(id:any): Observable<any>{
     let rutaURL = `${this.API_SERVER}cursos/${id}`  
-    console.log("envio ruta:",rutaURL)  
-    // let direccion = this.url + "estudiantes/" + estudianteid
     return this.http.delete<any>(rutaURL, id)
   }
   

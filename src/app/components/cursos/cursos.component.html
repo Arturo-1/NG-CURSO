@@ -7,17 +7,8 @@
     <div class="row mt-5">
         <div class="col-10 offset-1">
             <div class="row mb-3">
-                <div class="col-md-12">
-                    <label for="">Seleccione tipo de busqueda</label>
-                </div>
-                <div class="col-md-6 d-flex">
-                    <select class="custom-select" [(ngModel)]="opcionSeleccionado" >
-                        <option hidden >Seleccione Opcion deseada</option>
-                        <option  *ngFor="let data of dataSource" [value]=1>{{data.nombre}}</option>
-                       
-                        <!-- <option [value]="3">Nombre</option> -->
-                    </select>
-                    <button class="btn btn-primary">Buscar</button>
+                <div class="col-md-6">
+                <h2>Lista de cursos</h2>
                 </div>
                 <div class="col-md-6 d-flex justify-content-center align-items-center ">
                     <div class="row">
@@ -69,10 +60,7 @@
                             <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.area}} </td>
                         </ng-container>
                         <!-- Columna Area -->
-                        <ng-container matColumnDef="fecha Inicial">
-                          <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Fecha Inicio' | uppercase}} </th>
-                          <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.fecha_Inicial}} </td>
-                        </ng-container>
+                       
                         <ng-container matColumnDef="precio">
                           <th appTheadTable mat-header-cell *matHeaderCellDef> {{ 'Precio' | uppercase}} </th>
                           <td mat-cell *matCellDef="let dataArreglo"> {{dataArreglo.precio}} </td>
@@ -83,7 +71,7 @@
                                 <button class="m-1" mat-icon-button matTooltip="Eliminar Curso" (click)="deleteCurso(element.id)"  color="warn" >
                                     <mat-icon>delete</mat-icon>
                                 </button>
-                                <button class="m-1" mat-icon-button color="primary" routerLink="agregar" (click)="updateCurso(element)"  matTooltip="Actualizar informacion del Curdo">
+                                <button class="m-1" mat-icon-button color="primary" routerLink="editar" (click)="updateCurso(element)"  matTooltip="Actualizar informacion del Curdo">
                                     <mat-icon>edit</mat-icon>
                                 </button>                            
                                <button class="m-1" mat-icon-button color="primary" routerLink="detalle"  matTooltip="Mostrar Informacion del Curso">
